@@ -1,0 +1,2456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dieu Existe — Les Preuves</title>
+<style>
+/* ============================================================
+   DESIGN SYSTEM
+   ============================================================ */
+:root {
+  --bg:          #0a0e1a;
+  --bg2:         #111827;
+  --bg3:         #1a2236;
+  --surface:     #1e2d45;
+  --accent:      #c9a84c;
+  --accent2:     #e8c96e;
+  --blue:        #4a9eff;
+  --blue2:       #7bbeff;
+  --text:        #e8e8f0;
+  --text-muted:  #8a9bb0;
+  --border:      rgba(201,168,76,0.2);
+  --border2:     rgba(74,158,255,0.2);
+  --radius:      12px;
+  --radius-lg:   20px;
+  --shadow:      0 8px 32px rgba(0,0,0,0.4);
+  --shadow-gold: 0 4px 20px rgba(201,168,76,0.15);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+h1, h2, h3, h4, h5 {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, Georgia, serif;
+  letter-spacing: 0.02em;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 1.6rem); }
+h4 { font-size: 1.1rem; }
+
+a { color: var(--blue2); text-decoration: none; transition: color .2s; }
+a:hover { color: var(--accent2); }
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+#nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(10,14,26,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 62px;
+}
+
+.nav-logo {
+  font-family: Palatino, Georgia, serif;
+  font-size: 1.15rem;
+  font-weight: bold;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0.2rem;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: all .2s;
+}
+.nav-links a:hover { color: var(--accent); background: rgba(201,168,76,0.1); }
+
+#menu-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--accent);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+#mobile-nav {
+  display: none;
+  position: fixed;
+  top: 62px; left: 0; right: 0;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  z-index: 999;
+  padding: 1rem;
+}
+#mobile-nav.open { display: block; }
+#mobile-nav a {
+  display: block;
+  color: var(--text-muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+#mobile-nav a:hover { color: var(--accent); }
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  #menu-toggle { display: block; }
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.page-top { padding-top: 62px; }
+
+section { scroll-margin-top: 70px; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-inner {
+  padding: 5rem 0;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(74,158,255,0.08) 0%, transparent 70%),
+              radial-gradient(ellipse 60% 40% at 80% 80%, rgba(201,168,76,0.06) 0%, transparent 60%),
+              var(--bg);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 6px 18px;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  margin-bottom: 1.2rem;
+  background: linear-gradient(135deg, #fff 30%, var(--accent2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-style: italic;
+}
+
+.hero-cta {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #0a0e1a;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  padding: 14px 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+  display: inline-block;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.4); color: #0a0e1a; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  padding: 13px 28px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all .2s;
+  display: inline-block;
+}
+.btn-outline:hover { color: var(--text); border-color: rgba(255,255,255,0.4); }
+
+.hero-stars {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  opacity: 0.5;
+}
+.star { width: 4px; height: 4px; background: white; border-radius: 50%; animation: twinkle 3s infinite; }
+.star:nth-child(2) { animation-delay: .5s; }
+.star:nth-child(3) { animation-delay: 1s; }
+.star:nth-child(4) { animation-delay: 1.5s; }
+.star:nth-child(5) { animation-delay: 2s; }
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%  { opacity: 1;   transform: scale(1.4); }
+}
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  margin-bottom: 0.8rem;
+}
+
+.section-desc {
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+.gold-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  margin: 1rem auto;
+}
+
+/* ============================================================
+   NIVEAU DE PROFONDEUR
+   ============================================================ */
+.level-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.level-step {
+  flex: 1;
+  min-width: 120px;
+  padding: 12px 8px;
+  text-align: center;
+  background: var(--bg3);
+  border-right: 1px solid var(--border);
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.03em;
+  transition: all .3s;
+}
+.level-step:last-child { border-right: none; }
+.level-step.active {
+  background: rgba(201,168,76,0.15);
+  color: var(--accent);
+  font-weight: bold;
+}
+.level-step .step-num {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+/* ============================================================
+   ARGUMENT CARDS
+   ============================================================ */
+.arg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.arg-card {
+  background: var(--surface);
+  border: 1px solid var(--border2);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform .3s, box-shadow .3s, border-color .3s;
+}
+
+.arg-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--blue));
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.arg-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-gold);
+  border-color: rgba(201,168,76,0.4);
+}
+.arg-card:hover::before { opacity: 1; }
+
+.arg-icon {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.arg-title {
+  color: var(--accent2);
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
+}
+
+.arg-body {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.arg-source {
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  color: var(--blue2);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: 0.8rem;
+  margin-top: 0.8rem;
+}
+
+/* ============================================================
+   FEATURED ARGUMENT (LARGE BLOCK)
+   ============================================================ */
+.featured-arg {
+  background: linear-gradient(135deg, var(--bg3), var(--surface));
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.featured-arg h3 {
+  color: var(--accent2);
+  margin-bottom: 1rem;
+}
+
+.featured-arg p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.featured-arg ul {
+  color: var(--text-muted);
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.featured-arg li {
+  margin-bottom: 0.5rem;
+}
+
+.featured-arg .source-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1.2rem;
+}
+
+.source-pill {
+  background: rgba(74,158,255,0.1);
+  border: 1px solid var(--border2);
+  color: var(--blue2);
+  font-family: Arial, sans-serif;
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  transition: all .2s;
+}
+.source-pill:hover {
+  background: rgba(74,158,255,0.2);
+  color: #fff;
+}
+
+
+/* Hide inline source refs inside argument blocks */
+.arg-source,
+.arg-card .source-list,
+.featured-arg .source-list,
+.collapse-body .source-list { display: none; }
+
+/* ============================================================
+   QUOTE / BLOCKQUOTE
+   ============================================================ */
+.blockquote-card {
+  background: rgba(201,168,76,0.05);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text);
+  position: relative;
+}
+
+.blockquote-card::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  font-size: 4rem;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.blockquote-attr {
+  display: block;
+  margin-top: 0.8rem;
+  font-style: normal;
+  font-family: Arial, sans-serif;
+  font-size: 0.82rem;
+  color: var(--accent);
+}
+
+/* ============================================================
+   COLLAPSIBLE SECTIONS
+   ============================================================ */
+.collapse-section {
+  background: var(--bg3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.collapse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 1.5rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background .2s;
+}
+.collapse-header:hover { background: rgba(255,255,255,0.03); }
+
+.collapse-title {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: var(--text);
+  font-size: 1rem;
+  font-family: Palatino, Georgia, serif;
+}
+
+.collapse-icon {
+  font-size: 1.2rem;
+}
+
+.collapse-arrow {
+  color: var(--accent);
+  font-size: 1.2rem;
+  transition: transform .3s;
+}
+.collapse-section.open .collapse-arrow { transform: rotate(180deg); }
+
+.collapse-body {
+  display: none;
+  padding: 0 1.5rem 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+.collapse-section.open .collapse-body { display: block; }
+
+/* ============================================================
+   YOUTUBE EMBED — thumbnail click-to-play
+   ============================================================ */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.video-card {
+  background: var(--bg3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform .3s;
+}
+.video-card:hover { transform: translateY(-3px); }
+
+/* Thumbnail wrapper */
+.yt-thumb {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000;
+}
+.yt-thumb img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: opacity .3s;
+}
+.yt-thumb:hover img { opacity: 0.7; }
+.yt-play-btn {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px; height: 48px;
+  background: rgba(255,0,0,0.88);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s, transform .2s;
+  pointer-events: none;
+}
+.yt-thumb:hover .yt-play-btn {
+  background: #ff0000;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.yt-play-btn svg { width: 26px; height: 26px; fill: #fff; }
+/* Once activated → real iframe */
+.yt-thumb iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+.video-meta {
+  padding: 1rem 1.2rem;
+}
+.video-title {
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  font-family: Arial, sans-serif;
+}
+.video-author {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-family: Arial, sans-serif;
+}
+
+/* ============================================================
+   ARGUMENT VIDEO BUTTON
+   ============================================================ */
+.arg-vid-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 0.8rem;
+  background: rgba(255,0,0,0.10);
+  border: 1px solid rgba(255,80,80,0.3);
+  color: #ff8080;
+  font-family: Arial, sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 5px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  transition: all .2s;
+  white-space: nowrap;
+}
+.arg-vid-btn:hover {
+  background: rgba(255,0,0,0.22);
+  color: #ffb3b3;
+  border-color: rgba(255,80,80,0.6);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   SCIENTISTS TABLE
+   ============================================================ */
+.scientist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.scientist-card {
+  background: var(--bg3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  transition: border-color .2s;
+}
+.scientist-card:hover { border-color: var(--border); }
+
+.scientist-name {
+  font-size: 0.9rem;
+  color: var(--accent2);
+  margin-bottom: 0.3rem;
+  font-family: Palatino, Georgia, serif;
+}
+
+.scientist-field {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-family: Arial, sans-serif;
+}
+
+/* ============================================================
+   HISTORICAL FACTS (NUMBERED)
+   ============================================================ */
+.fact-list {
+  counter-reset: fact;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.fact-item {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  background: var(--bg3);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.fact-num {
+  counter-increment: fact;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: #0a0e1a;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fact-content strong {
+  display: block;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  font-family: Palatino, Georgia, serif;
+}
+
+.fact-content p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* ============================================================
+   SOURCES SECTION
+   ============================================================ */
+.sources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1rem;
+}
+
+.source-item {
+  background: var(--bg3);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  font-family: Arial, sans-serif;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  transition: border-color .2s;
+}
+.source-item:hover { border-color: var(--border2); }
+
+.source-item .source-num {
+  color: var(--accent);
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+.source-item a {
+  color: var(--blue2);
+  word-break: break-all;
+}
+
+/* ============================================================
+   STATS BAR
+   ============================================================ */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.stat-item {
+  background: var(--bg2);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent2);
+  font-family: Palatino, Georgia, serif;
+  display: block;
+}
+
+.stat-label {
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ============================================================
+   DIVIDERS AND UTILITIES
+   ============================================================ */
+.sep {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  margin: 4rem 0;
+}
+
+.bg-dark { background: var(--bg2); }
+.bg-mid  { background: var(--bg3); }
+
+.text-gold { color: var(--accent2); }
+.text-blue { color: var(--blue2); }
+.text-muted { color: var(--text-muted); font-style: italic; }
+
+.tag {
+  display: inline-block;
+  background: rgba(74,158,255,0.1);
+  border: 1px solid var(--border2);
+  color: var(--blue2);
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  padding: 2px 9px;
+  border-radius: 20px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+.tag-gold {
+  background: rgba(201,168,76,0.1);
+  border-color: var(--border);
+  color: var(--accent);
+}
+
+/* ============================================================
+   VIDEO MODAL
+   ============================================================ */
+#vid-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(6px);
+  align-items: center;
+  justify-content: center;
+}
+#vid-modal.open { display: flex; }
+
+.vid-modal-inner {
+  position: relative;
+  width: min(860px, 94vw);
+  background: #0a0e1a;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  animation: modalIn .25s ease;
+}
+@keyframes modalIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+
+.vid-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.vid-modal-title {
+  font-family: Palatino, Georgia, serif;
+  font-size: 0.95rem;
+  color: var(--accent2);
+  max-width: calc(100% - 50px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vid-modal-close {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text);
+  font-size: 1.2rem;
+  line-height: 1;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.vid-modal-close:hover { background: rgba(255,80,80,0.3); }
+
+.vid-modal-frame {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+.vid-modal-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  border: none;
+}
+
+/* ============================================================
+   BACK TO TOP
+   ============================================================ */
+#back-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--accent);
+  color: #0a0e1a;
+  border: none;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(201,168,76,0.4);
+  transition: transform .2s;
+  z-index: 999;
+}
+#back-top:hover { transform: translateY(-3px); }
+#back-top.visible { display: flex; }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 640px) {
+  .featured-arg { padding: 1.5rem; }
+  .hero-content { padding: 3rem 1rem; }
+  .section-inner { padding: 3rem 0; }
+  .arg-grid { grid-template-columns: 1fr; }
+  .video-grid { grid-template-columns: 1fr; }
+  .sources-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================================
+   PROGRESS BAR
+   ============================================================ */
+#progress-bar {
+  position: fixed;
+  top: 62px;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--blue));
+  width: 0%;
+  z-index: 999;
+  transition: width .1s linear;
+}
+
+/* ============================================================
+   TWO COLUMN
+   ============================================================ */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+@media (max-width: 700px) {
+  .two-col { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="page-top">
+
+<!-- PROGRESS BAR -->
+<div id="progress-bar"></div>
+
+<!-- NAVIGATION -->
+<nav id="nav">
+  <div class="nav-logo">✦ Dieu Existe</div>
+  <ul class="nav-links">
+    <li><a href="#intro">Introduction</a></li>
+    <li><a href="#philosophie">Philosophie</a></li>
+    <li><a href="#science">Science</a></li>
+    <li><a href="#mathematiques">Mathématiques</a></li>
+    <li><a href="#conscience">Conscience</a></li>
+    <li><a href="#morale">Morale</a></li>
+    <li><a href="#histoire">Histoire</a></li>
+    <li><a href="#resurrection">Résurrection</a></li>
+    <li><a href="#videos">Vidéos</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+  <button id="menu-toggle" onclick="toggleMenu()">☰</button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div id="mobile-nav">
+  <a href="#intro" onclick="closeMenu()">Introduction</a>
+  <a href="#philosophie" onclick="closeMenu()">Arguments philosophiques</a>
+  <a href="#science" onclick="closeMenu()">Arguments scientifiques</a>
+  <a href="#mathematiques" onclick="closeMenu()">Mathématiques</a>
+  <a href="#conscience" onclick="closeMenu()">Conscience &amp; Raison</a>
+  <a href="#morale" onclick="closeMenu()">Argument moral</a>
+  <a href="#histoire" onclick="closeMenu()">Histoire &amp; Jésus</a>
+  <a href="#resurrection" onclick="closeMenu()">Résurrection</a>
+  <a href="#videos" onclick="closeMenu()">Vidéos</a>
+  <a href="#sources" onclick="closeMenu()">Sources</a>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Apologétique · Science · Histoire · Philosophie</div>
+    <h1 class="hero-title">Dieu Existe<br>— Les Preuves</h1>
+    <p class="hero-subtitle">
+      Un parcours rigoureux des arguments les plus fondamentaux aux plus précis,
+      appuyé sur la philosophie, la physique, les mathématiques et l'histoire.
+    </p>
+    <div class="hero-cta">
+      <a href="#intro" class="btn-primary">Commencer l'exploration</a>
+      <a href="#sources" class="btn-outline">Voir les sources</a>
+    </div>
+    <div class="hero-stars">
+      <div class="star"></div><div class="star"></div><div class="star"></div>
+      <div class="star"></div><div class="star"></div><div class="star"></div>
+      <div class="star"></div><div class="star"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     INTRODUCTION
+     ============================================================ -->
+<section id="intro" class="bg-dark">
+  <div class="container section-inner">
+    <div class="section-header">
+      <span class="section-tag">Pourquoi cette question est fondamentale</span>
+      <h2 class="section-title">La question qui change tout</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        « Si Dieu n'existe pas, tout est permis et rien n'a de sens. Si Dieu existe, tout est différent. »
+      </p>
+    </div>
+
+    <div class="featured-arg">
+      <h3>La méthode : raison et preuves, pas seulement foi</h3>
+      <p>
+        Ce site s'inscrit dans la tradition de la <strong style="color:var(--accent2)">théologie naturelle</strong> : la démarche qui consiste
+        à démontrer l'existence de Dieu par la seule raison humaine, indépendamment de toute révélation.
+        Le Concile Vatican I (1870) affirmait lui-même que « l'existence de Dieu peut être démontrée par la simple raison ».
+      </p>
+      <p>
+        Des philosophes (Aristote, Thomas d'Aquin, Leibniz, Kant), des scientifiques (Newton, Lemaitre, Penrose)
+        et des historiens contemporains ont élaboré des arguments convergents. Nous les présentons ici du plus
+        fondamental (métaphysique) au plus précis (historique).
+      </p>
+      <p>
+        Olivier Bonnassies et Michel Bolloré, dans leur best-seller
+        <em>Dieu, la science, les preuves</em> (450 000 exemplaires vendus, traduit en 10 langues),
+        résument l'enjeu ainsi : <em>« Ce n'est pas la religion qui a besoin de la science, c'est la science
+        qui converge vers les conclusions que la philosophie avait déjà atteintes. »</em>
+      </p>
+      <div class="source-list">
+        <a class="source-pill" href="https://www.vatican.va/archive/hist_councils/i-vatican-council/documents/vat-i_const_18700424_dei-filius_fr.html" target="_blank">Concile Vatican I, Dei Filius (1870)</a>
+        <a class="source-pill" href="https://www.amazon.fr/Dieu-science-preuves-aube-r%C3%A9volution/dp/2268103595" target="_blank">Bolloré &amp; Bonnassies (2021)</a>
+        <a class="source-pill" href="#sources">Voir toutes les sources →</a>
+      </div>
+    </div>
+
+    <div class="stats-bar">
+      <div class="stat-item">
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Constantes universelles<br>réglées avec précision</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">10⁶⁰</span>
+        <span class="stat-label">Précision de la constante<br>gravitationnelle</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">90%</span>
+        <span class="stat-label">Prix Nobel de science<br>croyants (étude 2003)</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">5</span>
+        <span class="stat-label">Faits historiques sur la<br>Résurrection unanimement reconnus</span>
+      </div>
+    </div>
+
+    <!-- Niveau de profondeur -->
+    <div class="level-indicator">
+      <div class="level-step">
+        <span class="step-num">I</span>
+        Philosophie classique
+      </div>
+      <div class="level-step">
+        <span class="step-num">II</span>
+        Science physique
+      </div>
+      <div class="level-step">
+        <span class="step-num">III</span>
+        Mathématiques
+      </div>
+      <div class="level-step">
+        <span class="step-num">IV</span>
+        Conscience &amp; Morale
+      </div>
+      <div class="level-step">
+        <span class="step-num">V</span>
+        Histoire &amp; Christ
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     I. PHILOSOPHIE CLASSIQUE
+     ============================================================ -->
+<section id="philosophie">
+  <div class="container section-inner">
+    <div class="section-header">
+      <span class="section-tag">Niveau I — Arguments philosophiques classiques</span>
+      <h2 class="section-title">Les Fondements Philosophiques</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        Ces arguments partent des réalités les plus universelles : l'existence, la causalité, le mouvement, la contingence.
+        Ils sont les plus fondamentaux car ils ne dépendent d'aucune découverte scientifique particulière.
+      </p>
+    </div>
+
+    <!-- Argument cosmologique Kalam -->
+    <div class="featured-arg" style="margin-bottom:2rem">
+      <span class="tag tag-gold">Le plus fondamental</span>
+      <span class="tag">Kalam · Leibniz</span>
+      <h3>1. L'Argument Cosmologique — Tout ce qui commence à exister a une cause</h3>
+      <p>
+        L'argument Kalam, popularisé par le philosophe William Lane Craig et fondé sur des penseurs arabes médiévaux
+        (Al-Ghazali, XIe s.), ainsi que sur Leibniz, se résume en trois prémisses :
+      </p>
+      <ul>
+        <li><strong>Prémisse 1 :</strong> Tout ce qui commence à exister a une cause externe à lui-même.</li>
+        <li><strong>Prémisse 2 :</strong> L'univers a commencé à exister (confirmé par le Big Bang et le théorème BGV).</li>
+        <li><strong>Conclusion :</strong> L'univers a une cause externe — non spatiale, non temporelle, non matérielle, immensément puissante et transcendante. Ce que nous appelons Dieu.</li>
+      </ul>
+      <p>
+        Cette cause, étant extérieure au temps et à l'espace, ne peut être causée elle-même (elle est nécessaire et éternelle).
+        Leibniz formulait cela comme le <em>Principe de Raison Suffisante</em> : « Rien n'arrive sans raison pourquoi
+        il en soit ainsi et non autrement. »
+      </p>
+      <div class="blockquote-card" style="margin-top:1rem">
+        « Pourquoi y a-t-il quelque chose plutôt que rien ? Dieu est la réponse à cette question. »
+        <span class="blockquote-attr">— Allan Sandage, cosmologiste, Prix Crafoord (1987)</span>
+      </div>
+      <div class="source-list">
+        <a class="source-pill" href="https://doi.org/10.1093/acprof:oso/9780631218647.001.0001" target="_blank">Craig, W. L. (1979). The Kalam Cosmological Argument. Macmillan.</a>
+        <a class="source-pill" href="https://leibniz-translations.com/monadology.htm" target="_blank">Leibniz, Principes de la nature et de la grâce (1714)</a>
+      </div>
+      <a class="arg-vid-btn" onclick="openModal('fYgRGBczRHk',111)" href="javascript:void(0);">▶ Lavagna explique le Kalam (1:51)</a>
+      <a class="arg-vid-btn" onclick="openModal('ZWzys1gojtA',163)" href="javascript:void(0);">▶ Bonnassies : « Si Dieu existe… » (2:43)</a>
+    </div>
+
+    <div class="arg-grid">
+
+      <!-- 2. Ex nihilo -->
+      <div class="arg-card">
+        <div class="arg-icon">∅</div>
+        <h4 class="arg-title">Le néant ne crée rien</h4>
+        <p class="arg-body">
+          Si à un moment il y avait eu un néant absolu — aucun espace, aucun temps, aucune énergie, aucune loi —
+          il n'y aurait toujours rien. Puisqu'il y a quelque chose aujourd'hui, il n'y a jamais eu de néant absolu.
+          Il y a donc toujours eu un <em>être nécessaire</em>, sans commencement, sans cause extérieure.
+          Cet être nécessaire est ce que nous appelons Dieu.
+        </p>
+        <div class="arg-source">
+          Source : Leibniz, <em>Monadologie</em> §§45-48 (1714) ·
+          <a href="https://plato.stanford.edu/entries/cosmological-argument/" target="_blank">Stanford Encyclopedia</a>
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('ZiNRN20tEQI',608)" href="javascript:void(0);">▶ Voir dans la vidéo (10:08)</a>
+      </div>
+
+      <!-- 3. Argument du mouvement -->
+      <div class="arg-card">
+        <div class="arg-icon">⚙️</div>
+        <h4 class="arg-title">L'Argument du Mouvement (Aristote)</h4>
+        <p class="arg-body">
+          Tout ce qui est en mouvement est mû par autre chose. Les planètes, les galaxies, les particules —
+          tout est en mouvement. Si l'on remonte la chaîne des moteurs, on ne peut aller à l'infini
+          (ce serait une régression infinie sans explication). Il faut donc un <em>Premier Moteur non mû</em>,
+          qui n'est pas lui-même mis en mouvement par autre chose. Aristote l'appelait le « Moteur Immobile ».
+          Thomas d'Aquin en fait sa première voie.
+        </p>
+        <div class="arg-source">
+          Source : Aristote, <em>Physique</em> VIII · Thomas d'Aquin, <em>Summa Theologica</em> I, q.2, a.3
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('ZiNRN20tEQI',122)" href="javascript:void(0);">▶ Voir dans la vidéo (2:02)</a>
+      </div>
+
+      <!-- 4. Contingence -->
+      <div class="arg-card">
+        <div class="arg-icon">◇</div>
+        <h4 class="arg-title">L'Argument de la Contingence</h4>
+        <p class="arg-body">
+          Toutes les choses que nous observons sont <em>contingentes</em> — elles auraient pu ne pas exister.
+          Si tout est contingent, il devrait y avoir un moment où rien n'existait. Mais si rien n'avait existé,
+          rien ne pourrait exister maintenant. Donc il doit exister un être <em>nécessaire</em>, qui ne peut
+          pas ne pas exister, dont l'essence implique l'existence. C'est la troisième voie de Thomas d'Aquin.
+        </p>
+        <div class="arg-source">
+          Source : Thomas d'Aquin, <em>Summa Theologica</em> I, q.2, a.3 (3ème voie) ·
+          <a href="https://plato.stanford.edu/entries/ontological-arguments/" target="_blank">Stanford Encyclopedia</a>
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('7IA4XriGeZY',175)" href="javascript:void(0);">▶ Abbé Raffray : les 5 voies (2:55)</a>
+      </div>
+
+      <!-- 5. Ontologique -->
+      <div class="arg-card">
+        <div class="arg-icon">♾</div>
+        <h4 class="arg-title">L'Argument Ontologique (Anselme)</h4>
+        <p class="arg-body">
+          Anselme de Cantorbéry (1078) définit Dieu comme « ce dont on ne peut rien concevoir de plus grand ».
+          Un tel être doit exister non seulement dans l'esprit mais dans la réalité — car un être qui n'existerait
+          que dans l'esprit ne serait pas « le plus grand possible ». Descartes, Leibniz et Plantinga ont développé
+          des versions modales de cet argument : si Dieu est <em>possible</em>, alors Dieu est <em>nécessaire</em>.
+        </p>
+        <div class="arg-source">
+          Source : Anselme, <em>Proslogion</em> (1078) · Plantinga, A. (1974). <em>The Nature of Necessity</em>. Oxford.
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('7IA4XriGeZY',120)" href="javascript:void(0);">▶ Abbé Raffray : raisonnement (2:00)</a>
+      </div>
+
+      <!-- 6. Perfection -->
+      <div class="arg-card">
+        <div class="arg-icon">⭐</div>
+        <h4 class="arg-title">L'Argument de la Perfection (Thomas d'Aquin)</h4>
+        <p class="arg-body">
+          Nous observons des degrés de qualité : les choses sont plus ou moins vraies, bonnes, belles, nobles.
+          Ces degrés ne peuvent s'expliquer que par rapport à un maximum absolu — ce qui est souverainement vrai,
+          bon, noble. Ce maximum, qui est la source de toute qualité, est ce que nous appelons Dieu.
+          C'est la quatrième voie de Thomas d'Aquin (inspirée d'Aristote et de saint Augustin).
+        </p>
+        <div class="arg-source">
+          Source : Thomas d'Aquin, <em>Summa Theologica</em> I, q.2, a.3 (4ème voie) ·
+          Aristote, <em>Métaphysique</em>
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('ZiNRN20tEQI',151)" href="javascript:void(0);">▶ Voir dans la vidéo (2:31)</a>
+      </div>
+
+      <!-- 7. Gouvernement du monde -->
+      <div class="arg-card">
+        <div class="arg-icon">🌌</div>
+        <h4 class="arg-title">L'Ordre et la Finalité (5ème voie)</h4>
+        <p class="arg-body">
+          Les choses sans intelligence — les lois physiques, les équations, les structures naturelles — agissent
+          toujours de manière orientée vers une fin (les lois de la physique tendent vers l'ordre, l'atome vers
+          la stabilité, l'ADN vers la vie). Un archer vise la cible. Des choses sans connaissance ne peuvent viser
+          un but que si un être intelligent les dirige. Il existe donc un être intelligent qui ordonne la nature
+          vers ses fins. C'est la cinquième voie de Thomas d'Aquin.
+        </p>
+        <div class="arg-source">
+          Source : Thomas d'Aquin, <em>Summa Theologica</em> I, q.2, a.3 (5ème voie)
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('otrqzITuSqE',56)" href="javascript:void(0);">▶ Lennox : science et finalité (0:56)</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     II. SCIENCE
+     ============================================================ -->
+<section id="science" class="bg-dark">
+  <div class="container section-inner">
+    <div class="section-header">
+      <span class="section-tag">Niveau II — Arguments scientifiques contemporains</span>
+      <h2 class="section-title">Ce Que La Science Révèle</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        La physique moderne a redécouvert indépendamment les conclusions de la philosophie :
+        l'univers a un début radical, et ses paramètres sont réglés avec une précision astronomique.
+      </p>
+    </div>
+
+    <!-- BGV -->
+    <div class="featured-arg">
+      <span class="tag tag-gold">Physique</span>
+      <span class="tag">Peer-reviewed</span>
+      <h3>Le Théorème de Borde-Guth-Vilenkin (2003)</h3>
+      <p>
+        En 2003, les physiciens Arvind Borde, Alan Guth et Alexander Vilenkin ont démontré mathématiquement que
+        <strong style="color:var(--accent2)">tout univers en expansion (y compris les multivers) doit avoir eu un commencement absolu</strong>.
+        Ce théorème, publié dans <em>Physical Review Letters</em>, est l'un des résultats les plus solides de la cosmologie moderne.
+        Il s'applique même aux univers qui auraient existé « avant » le Big Bang — il n'y a pas d'échappatoire.
+      </p>
+      <p>
+        Vilenkin lui-même, athée, reconnaît : « L'évidence suggère que l'univers a un commencement. »
+        Ce commencement appelle une cause externe — non temporelle, non spatiale, non matérielle : précisément
+        ce que les philosophes avaient déduit par raisonnement seul.
+      </p>
+      <div class="source-list">
+        <a class="source-pill" href="https://doi.org/10.1103/PhysRevLett.90.151301" target="_blank">Borde, Guth &amp; Vilenkin (2003). PRL, 90, 151301.</a>
+        <a class="source-pill" href="https://arxiv.org/abs/gr-qc/0110012" target="_blank">Préprint ArXiv gr-qc/0110012</a>
+        <a class="source-pill" href="https://www.amazon.fr/Many-Worlds-One-Discover-Other/dp/0809058081" target="_blank">Vilenkin, <em>Many Worlds in One</em> (2006)</a>
+      </div>
+      <a class="arg-vid-btn" onclick="openModal('ZiNRN20tEQI',31)" href="javascript:void(0);">▶ Le début radical de l'univers (0:31)</a>
+      <a class="arg-vid-btn" onclick="openModal('otrqzITuSqE',130)" href="javascript:void(0);">▶ Lennox : pourquoi y a-t-il quelque chose ? (2:10)</a>
+    </div>
+
+    <div class="arg-grid" style="margin-top:2rem">
+
+      <!-- 2nd law -->
+      <div class="arg-card">
+        <div class="arg-icon">🌡️</div>
+        <h4 class="arg-title">La 2ème Loi de la Thermodynamique</h4>
+        <p class="arg-body">
+          L'entropie de l'univers augmente toujours. L'énergie utile se dissipe irréversiblement (le soleil brûle
+          son hydrogène). Si l'univers existait depuis une infinité de temps, toute son énergie serait déjà dissipée
+          — « mort thermique ». Puisque nous existons encore, l'univers n'est pas éternel : il a eu un début.
+          Ce qui a un début a une cause.
+        </p>
+        <div class="arg-source">
+          Source : Clausius, R. (1865). <em>Annalen der Physik</em> ·
+          <a href="https://plato.stanford.edu/entries/time-thermo/" target="_blank">Stanford Encyclopedia of Philosophy</a>
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('ZiNRN20tEQI',92)" href="javascript:void(0);">▶ Voir dans la vidéo (1:32)</a>
+      </div>
+
+      <!-- Fine-tuning -->
+      <div class="arg-card" style="border-color:rgba(201,168,76,0.4)">
+        <div class="arg-icon">🎯</div>
+        <h4 class="arg-title">Le Réglage Fin de l'Univers (Fine-Tuning)</h4>
+        <p class="arg-body">
+          L'univers contient environ 20 constantes physiques fondamentales (constante gravitationnelle, constante
+          cosmologique, masse de l'électron…). Si l'une d'elles variait d'une infime fraction, aucune vie ne serait
+          possible. La constante gravitationnelle doit être précise à 1 chiffre sur 10⁶⁰. La probabilité que
+          toutes ces constantes soient simultanément réunies par le seul hasard est astronomiquement impossible.
+          C'est l'un des arguments scientifiques les plus puissants en faveur d'un Concepteur.
+        </p>
+        <div class="arg-source">
+          Source :
+          <a href="https://doi.org/10.1093/acprof:oso/9780198751700.001.0001" target="_blank">Barrow &amp; Tipler (1986). <em>The Anthropic Cosmological Principle</em>. Oxford.</a> ·
+          <a href="https://www.amazon.fr/Goldilocks-Enigma-Universe-Goldilocks-English/dp/0618592261" target="_blank">Davies, P. (2006). <em>The Goldilocks Enigma</em>.</a>
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('ZiNRN20tEQI',398)" href="javascript:void(0);">▶ L'analogie de l'Euromillion (6:38)</a>
+        <a class="arg-vid-btn" onclick="openModal('otrqzITuSqE',199)" href="javascript:void(0);">▶ Lennox cite Penzias (3:19)</a>
+        <a class="arg-vid-btn" onclick="openModal('fYgRGBczRHk',134)" href="javascript:void(0);">▶ Lavagna : fine-tuning (2:14)</a>
+      </div>
+
+      <!-- Multivers -->
+      <div class="arg-card">
+        <div class="arg-icon">🌀</div>
+        <h4 class="arg-title">La Réfutation du Multivers comme Explication</h4>
+        <p class="arg-body">
+          Pour expliquer le fine-tuning sans Dieu, certains proposent les multivers — une infinité d'univers
+          avec des constantes aléatoires. Mais les calculs montrent que même avec des multivers, la probabilité
+          d'obtenir notre univers reste absurdement faible. De plus, tout multivers suppose lui-même un mécanisme
+          générateur soumis aux mêmes lois — et le théorème BGV s'applique aux multivers.
+          Ce n'est pas une explication, c'est un report du problème.
+        </p>
+        <div class="arg-source">
+          Source : Collins, R. (2009) in Craig &amp; Moreland, <em>Blackwell Companion to Natural Theology</em> ·
+          <a href="https://doi.org/10.1103/PhysRevLett.90.151301" target="_blank">BGV (2003)</a>
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('ZiNRN20tEQI',428)" href="javascript:void(0);">▶ Voir dans la vidéo (7:08)</a>
+      </div>
+
+      <!-- Origine de la vie -->
+      <div class="arg-card">
+        <div class="arg-icon">🧬</div>
+        <h4 class="arg-title">L'Origine de la Vie — Information et Complexité</h4>
+        <p class="arg-body">
+          La cellule la plus simple contient plus d'informations que l'Encyclopædia Britannica.
+          L'ADN est un code informatique d'une complexité irréductible. Fred Hoyle, astronome et athée notoire,
+          calcula que la probabilité d'assembler aléatoirement une seule protéine fonctionnelle est de 10⁻⁴⁰⁰⁰⁰.
+          Il dit : « L'idée que la vie soit apparue par hasard est aussi crédible qu'un ouragan assemblant un Boeing 747
+          en soufflant dans une décharge. »
+        </p>
+        <div class="arg-source">
+          Source : Hoyle, F. (1981). <em>Engineering and Science</em>, 12-16 ·
+          <a href="https://doi.org/10.1016/0022-5193(73)90381-4" target="_blank">Eigen, M. (1973). <em>J. Mol. Biol.</em></a>
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('ZiNRN20tEQI',275)" href="javascript:void(0);">▶ Voir dans la vidéo (4:35)</a>
+      </div>
+
+    </div>
+
+    <div class="blockquote-card" style="margin-top:2rem">
+      « L'astronomie nous conduit à un événement unique, un univers créé à partir de rien, avec le délicat équilibre
+      nécessaire pour permettre exactement les conditions requises à l'apparition de la vie, et un plan sous-jacent qu'on
+      pourrait qualifier de surnaturel. »
+      <span class="blockquote-attr">— Arno Penzias, Prix Nobel de Physique 1978,
+        découvreur du rayonnement fossile du Big Bang</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     III. MATHÉMATIQUES
+     ============================================================ -->
+<section id="mathematiques">
+  <div class="container section-inner">
+    <div class="section-header">
+      <span class="section-tag">Niveau III — Arguments mathématiques</span>
+      <h2 class="section-title">L'Efficacité Déraisonnable des Mathématiques</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        Comment se fait-il que des structures mathématiques abstraites, inventées dans l'esprit humain,
+        décrivent parfaitement la réalité physique de l'univers ?
+      </p>
+    </div>
+
+    <div class="featured-arg">
+      <span class="tag tag-gold">Philosophie des sciences</span>
+      <h3>L'Argument de Wigner : Pourquoi les maths fonctionnent-elles ?</h3>
+      <p>
+        En 1960, le physicien et Prix Nobel Eugene Wigner publia un article resté célèbre :
+        <em>« The Unreasonable Effectiveness of Mathematics in the Natural Sciences »</em>.
+        Il observait que des mathématiques développées en pure abstraction — les nombres complexes, les espaces de Hilbert,
+        la géométrie riemannienne — se révèlent être exactement les outils dont la physique a besoin pour décrire
+        la réalité quantique et relativiste.
+      </p>
+      <p>
+        <strong style="color:var(--accent2)">Pourquoi l'univers obéit-il à des lois mathématiques précises ?</strong>
+        Cela n'a aucune explication naturaliste satisfaisante. Si l'univers était le produit aveugle du hasard,
+        il n'y a aucune raison qu'il soit mathématiquement cohérent. Cette correspondance parfaite suggère
+        qu'un Esprit mathématique a conçu l'univers — ce qu'Einstein exprimait quand il disait
+        « Dieu ne joue pas aux dés ».
+      </p>
+      <p>
+        Le physicien Roger Penrose (Prix Nobel 2020) va plus loin : il estime que les mathématiques ont une
+        existence réelle et indépendante, et que l'esprit humain accède à cette réalité mathématique objective —
+        ce qui suggère que l'esprit transcende la matière.
+      </p>
+      <div class="source-list">
+        <a class="source-pill" href="https://doi.org/10.1002/cpa.3160130102" target="_blank">Wigner, E. P. (1960). <em>Comm. Pure Appl. Math.</em>, 13(1), 1–14.</a>
+        <a class="source-pill" href="https://www.amazon.fr/Road-Reality-Complete-Guide-Universe/dp/0679776311" target="_blank">Penrose, R. (2004). <em>The Road to Reality</em>. Jonathan Cape.</a>
+      </div>
+      <a class="arg-vid-btn" onclick="openModal('TSZXlVF-qVI',0)" href="javascript:void(0);">▶ Willie Soon : Dieu dans les maths (0:00)</a>
+      <a class="arg-vid-btn" onclick="openModal('otrqzITuSqE',273)" href="javascript:void(0);">▶ Lennox : efficacité des maths (4:33)</a>
+    </div>
+
+    <div class="two-col" style="margin-top:1.5rem">
+      <div class="arg-card">
+        <div class="arg-icon">∞</div>
+        <h4 class="arg-title">Dirac et l'Antimatière — La Beauté Mathématique</h4>
+        <p class="arg-body">
+          Paul Dirac formula l'équation relativiste de l'électron. La solution produisait un résultat « absurde » :
+          une particule de charge opposée. Tout le monde pensa qu'il se trompait — jusqu'à ce que Carl Anderson
+          découvre le positron en 1932. Des mathématiques ont prédit une réalité physique avant qu'on la détecte.
+          Cette « beauté mathématique » comme guide vers la vérité est inexplicable sans un fondement rationnel
+          à l'univers.
+        </p>
+        <div class="arg-source">
+          Source : Dirac, P.A.M. (1928). <em>Proc. R. Soc. A</em>, 117, 610–624. ·
+          Anderson, C. D. (1933). <em>Physical Review</em>, 43(6), 491–494.
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('TSZXlVF-qVI',58)" href="javascript:void(0);">▶ Willie Soon cite Dirac (0:58)</a>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-icon">🔢</div>
+        <h4 class="arg-title">La Géométrie de Calabi-Yau et la Théorie des Cordes</h4>
+        <p class="arg-body">
+          La géométrie de Calabi-Yau, développée en mathématiques pures sans aucune application physique en vue,
+          s'avère être exactement le cadre dont la théorie des cordes a besoin pour décrire les dimensions
+          supplémentaires. Einstein lui-même utilisa la géométrie de Riemann, développée 50 ans avant
+          sa théorie de la relativité. Cette pré-adaptation des mathématiques à la physique est un mystère profond.
+        </p>
+        <div class="arg-source">
+          Source : Yau, S.-T. &amp; Nadis, S. (2010). <em>The Shape of Inner Space</em>. Basic Books.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     IV. CONSCIENCE ET RAISON
+     ============================================================ -->
+<section id="conscience" class="bg-dark">
+  <div class="container section-inner">
+    <div class="section-header">
+      <span class="section-tag">Niveau IV — Conscience, raison et morale</span>
+      <h2 class="section-title">La Conscience et la Fiabilité de la Raison</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        Si nous sommes de pures machines biologiques issues d'un processus aveugle,
+        pourquoi faire confiance à notre propre raisonnement ?
+      </p>
+    </div>
+
+    <div class="arg-grid">
+
+      <div class="arg-card" style="border-color:rgba(201,168,76,0.4)">
+        <div class="arg-icon">🧠</div>
+        <h4 class="arg-title">L'Argument Évolutionniste Contre le Naturalisme (Plantinga)</h4>
+        <p class="arg-body">
+          Si l'athéisme est vrai, nos facultés cognitives sont le produit de l'évolution — un processus
+          sélectionnant non pour la vérité mais pour la survie. Or nos croyances pourraient être toutes
+          fausses et nous faire quand même survivre. Il n'y a donc aucune raison de faire confiance à nos
+          facultés cognitives si l'athéisme est vrai — y compris notre croyance en l'athéisme lui-même.
+          Le naturalisme est auto-réfutant. La foi chrétienne, en revanche, affirme que nos facultés
+          cognitives ont été créées pour atteindre la vérité.
+        </p>
+        <div class="arg-source">
+          Source : <a href="https://global.oup.com/academic/product/where-the-conflict-really-lies-9780199812097" target="_blank">Plantinga, A. (2011). <em>Where the Conflict Really Lies</em>. Oxford University Press.</a>
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('otrqzITuSqE',305)" href="javascript:void(0);">▶ Lennox cite Plantinga (5:05)</a>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-icon">💡</div>
+        <h4 class="arg-title">Le Problème de la Conscience (Hard Problem)</h4>
+        <p class="arg-body">
+          David Chalmers a montré que la physique peut expliquer le comportement et les processus cérébraux,
+          mais ne peut pas expliquer l'<em>expérience subjective</em> — le fait qu'il y ait « quelque chose
+          que c'est d'être » conscient. Pourquoi y a-t-il une expérience intérieure ? Ce « problème difficile »
+          reste inexpliqué par le matérialisme, mais s'explique naturellement si les esprits sont créés
+          par un Esprit conscient.
+        </p>
+        <div class="arg-source">
+          Source : <a href="https://doi.org/10.1093/acprof:oso/9780195117899.001.0001" target="_blank">Chalmers, D. J. (1996). <em>The Conscious Mind</em>. Oxford University Press.</a>
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('otrqzITuSqE',375)" href="javascript:void(0);">▶ Lennox : raison et intelligence (6:15)</a>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-icon">🔬</div>
+        <h4 class="arg-title">L'Argument du Libre Arbitre</h4>
+        <p class="arg-body">
+          Si le matérialisme est vrai, chacun de nos actes est déterminé par des lois physiques.
+          Nous serions des robots biologiques, incapables de vrai choix. Mais l'expérience universelle
+          de la délibération morale, de la responsabilité, du regret, présuppose le libre arbitre.
+          Par ailleurs, si tout est prédéterminé, l'athée qui rejette Dieu ne peut pas non plus
+          s'en attribuer le mérite — c'était déterminé aussi. Le libre arbitre exige un esprit
+          non réductible à la matière.
+        </p>
+        <div class="arg-source">
+          Source : Swinburne, R. (2013). <em>Mind, Brain, and Free Will</em>. Oxford University Press.
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('ZiNRN20tEQI',214)" href="javascript:void(0);">▶ Matérialisme et responsabilité (3:34)</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MORALE
+     ============================================================ -->
+<section id="morale">
+  <div class="container section-inner">
+    <div class="section-header">
+      <span class="section-tag">Niveau IV — Argument moral</span>
+      <h2 class="section-title">L'Existence d'une Morale Objective</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        Si le bien et le mal existent objectivement — ce que tout le monde admet —
+        il faut les ancrer quelque part. Dans quoi ?
+      </p>
+    </div>
+
+    <div class="featured-arg">
+      <h3>L'Argument Moral de C.S. Lewis et William Lane Craig</h3>
+      <p>
+        L'argument moral est simple mais puissant :
+      </p>
+      <ul>
+        <li><strong>Prémisse 1 :</strong> Il existe des vérités morales objectives (torturer des enfants pour le plaisir est objectivement mal).</li>
+        <li><strong>Prémisse 2 :</strong> Si des vérités morales objectives existent, il doit y avoir un fondement à ces vérités.</li>
+        <li><strong>Prémisse 3 :</strong> La matière inerte ne peut pas fonder des valeurs morales — ce qui « est » ne dit pas ce qui « doit être » (guillotine de Hume).</li>
+        <li><strong>Conclusion :</strong> Il existe un être personnel qui est le fondement de la morale objective — ce que nous appelons Dieu.</li>
+      </ul>
+      <p>
+        C.S. Lewis, lui-même ancien athée, fut conduit à la foi par cet argument : « Si l'univers n'a pas de sens,
+        nous n'aurions jamais découvert qu'il n'en a pas. »
+      </p>
+      <div class="source-list">
+        <a class="source-pill" href="https://www.amazon.fr/Mere-Christianity-C-S-Lewis/dp/0060652926" target="_blank">C.S. Lewis, <em>Mere Christianity</em> (1952)</a>
+        <a class="source-pill" href="https://doi.org/10.1002/9781444308334.ch12" target="_blank">Craig, W.L. (2009) in <em>Blackwell Companion to Natural Theology</em></a>
+      </div>
+      <a class="arg-vid-btn" onclick="openModal('fYgRGBczRHk',161)" href="javascript:void(0);">▶ Lavagna : argument moral (2:41)</a>
+      <a class="arg-vid-btn" onclick="openModal('otrqzITuSqE',415)" href="javascript:void(0);">▶ Lennox : fondement de la morale (6:52)</a>
+    </div>
+
+    <div class="blockquote-card">
+      « L'egalitarisme universaliste dont ont émergé les idéaux de liberté, de solidarité, les droits de l'homme
+      et la démocratie est l'héritage direct de l'éthique de justice judaïque et de l'éthique de l'amour chrétienne.
+      […] Il n'y a pas d'alternative à cela. Tout le reste n'est que bavardage postmoderne. »
+      <span class="blockquote-attr">— Jürgen Habermas, philosophe athée de renommée mondiale, <em>Zeit der Übergänge</em> (2001)</span>
+    </div>
+
+    <div class="arg-card" style="margin-top:1.5rem">
+      <div class="arg-icon">⚖️</div>
+      <h4 class="arg-title">Si le matérialisme est vrai, personne n'est responsable de rien</h4>
+      <p class="arg-body">
+        Si tout ce que nous faisons est le résultat de réactions chimiques prédéterminées dans notre cerveau,
+        personne n'est moralement responsable de ses actes. Les tribunaux n'auraient plus de sens. Pourtant,
+        les athées les plus convaincus continuent d'affirmer que le mal existe, que les criminels méritent
+        d'être punis, que certaines choses sont injustes. Cette intuition morale universelle implique qu'ils
+        croient — au moins pratiquement — à une réalité morale objective, qui transcende la matière.
+      </p>
+      <div class="arg-source">
+        Source : Lewis, C. S. (1952). <em>Mere Christianity</em>. Geoffrey Bles. ·
+        Ruse, M. &amp; Wilson, E. O. (1985). <em>Philosophy</em>, 60(232), 173–192.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     V. HISTOIRE — JESUS
+     ============================================================ -->
+<section id="histoire" class="bg-dark">
+  <div class="container section-inner">
+    <div class="section-header">
+      <span class="section-tag">Niveau V — Arguments historiques</span>
+      <h2 class="section-title">Jésus : Existence Historique</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        L'historicité de Jésus-Christ est l'une des questions les mieux attestées de l'Antiquité,
+        confirmée par des sources chrétiennes <em>et</em> non chrétiennes.
+      </p>
+    </div>
+
+    <div class="featured-arg">
+      <h3>Les Sources Non-Chrétiennes</h3>
+      <p>
+        L'existence de Jésus est attestée non seulement dans les Évangiles, mais dans plusieurs sources
+        <strong style="color:var(--accent2)">indépendantes et non chrétiennes</strong> du Ier et IIe siècle :
+      </p>
+    </div>
+
+    <div class="arg-grid">
+
+      <div class="arg-card">
+        <div class="arg-icon">📜</div>
+        <h4 class="arg-title">Tacite — Annales (115 ap. J.-C.)</h4>
+        <p class="arg-body">
+          Tacite, historien romain et sénateur, mentionne que « Christus, à qui ce nom est dû, fut exécuté
+          sous Tibère par le procurateur Ponce Pilate ». C'est l'une des attestations non-chrétiennes
+          les plus explicites de l'existence et de la mort de Jésus.
+        </p>
+        <div class="arg-source">
+          Source : Tacite, <em>Annales</em>, XV, 44 (~115 ap. J.-C.) ·
+          <a href="https://www.thelatinlibrary.com/tacitus/tac.ann15.shtml" target="_blank">Texte latin original</a>
+        </div>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-icon">📚</div>
+        <h4 class="arg-title">Flavius Josèphe — Antiquités Juives (~94 ap. J.-C.)</h4>
+        <p class="arg-body">
+          Flavius Josèphe, historien juif au service de Rome, mentionne Jésus dans les <em>Antiquités Juives</em>
+          (XVIII, 63-64 — le <em>Testimonium Flavianum</em>) et dans la mention de l'exécution de « Jacques,
+          frère de Jésus appelé Christ » (XX, 200), reconnue authentique par la quasi-totalité des historiens.
+        </p>
+        <div class="arg-source">
+          Source : Josèphe, <em>Antiquités Juives</em>, XVIII, 63-64 et XX, 200 ·
+          <a href="https://www.amazon.fr/Historical-Jesus-Comprehensive-Guide/dp/0800631226" target="_blank">Theissen &amp; Merz (1998). <em>The Historical Jesus</em>.</a>
+        </div>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-icon">✉️</div>
+        <h4 class="arg-title">La Lettre de Pline le Jeune (112 ap. J.-C.)</h4>
+        <p class="arg-body">
+          Pline le Jeune, gouverneur romain de Bithynie, écrit à l'Empereur Trajan que les chrétiens
+          « chantaient des hymnes à Christ comme à un Dieu » et refusaient de renoncer à leur foi même
+          sous la torture. Ce témoignage confirme l'existence d'un mouvement puissant centré sur le Christ
+          seulement 80 ans après sa mort.
+        </p>
+        <div class="arg-source">
+          Source : Pline le Jeune, <em>Lettres</em>, X, 96 (112 ap. J.-C.) ·
+          <a href="https://www.thelatinlibrary.com/pliny.ep10.html" target="_blank">Texte latin original</a>
+        </div>
+      </div>
+
+      <div class="arg-card">
+        <div class="arg-icon">🔍</div>
+        <h4 class="arg-title">Le Consensus des Historiens</h4>
+        <p class="arg-body">
+          L'historicité de Jésus est reconnue par la quasi-totalité des historiens de l'Antiquité, croyants
+          ou non. John Meier (catholique), Bart Ehrman (agnostique), Maurice Casey (athée), E. P. Sanders
+          (non-croyant) — tous affirment que Jésus a bien existé. Les théories du Christ mythique sont
+          rejetées par le monde académique sérieux.
+        </p>
+        <div class="arg-source">
+          Source : <a href="https://www.amazon.fr/Did-Jesus-Exist-Historical-Argument/dp/0062206443" target="_blank">Ehrman, B. D. (2012). <em>Did Jesus Exist?</em> HarperOne.</a> ·
+          Sanders, E. P. (1993). <em>The Historical Figure of Jesus</em>. Penguin.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="collapse-section" style="margin-top:2rem">
+      <div class="collapse-header" onclick="toggleCollapse(this)">
+        <div class="collapse-title"><span class="collapse-icon">📖</span> Michel Onfray et la thèse mythiste — Réfutation</div>
+        <span class="collapse-arrow">▾</span>
+      </div>
+      <div class="collapse-body">
+        <p>
+          Michel Onfray a soutenu dans <em>Traité d'athéologie</em> que Jésus n'a peut-être pas existé.
+          Cette position est rejetée par pratiquement tous les historiens sérieux, même athées.
+          Matthieu Lavagna a réfuté en détail cette thèse en montrant que Onfray confond mythes et données
+          historiques, ignore les sources non-chrétiennes, et méconnaît les méthodes historiographiques actuelles.
+        </p>
+        <p style="margin-top:0.8rem">
+          Bart Ehrman, agnostique et spécialiste du Nouveau Testament, répond à ce type d'argument :
+          <em>« Jésus a existé. C'est la conclusion de toute recherche historique sérieuse depuis le XIXe siècle.
+          Remettre cela en question, c'est comme nier que Jules César a existé. »</em>
+        </p>
+        <div class="source-list" style="margin-top:1rem">
+          <a class="source-pill" href="https://www.youtube.com/watch?v=UnaAFhybsDk" target="_blank">📺 Lavagna : Jésus a-t-il existé ? ONFRAY débunké (YouTube)</a>
+          <a class="source-pill" href="https://www.amazon.fr/Did-Jesus-Exist-Historical-Argument/dp/0062206443" target="_blank">Ehrman (2012). <em>Did Jesus Exist?</em></a>
+        </div>
+        <a class="arg-vid-btn" onclick="openModal('UnaAFhybsDk',0)" href="javascript:void(0);">▶ Voir la réfutation complète d'Onfray (0:00)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     RESURRECTION
+     ============================================================ -->
+<section id="resurrection">
+  <div class="container section-inner">
+    <div class="section-header">
+      <span class="section-tag">Niveau V — Le fait central du christianisme</span>
+      <h2 class="section-title">La Résurrection du Christ</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        « Si le Christ n'est pas ressuscité, vaine est notre foi. » — Saint Paul, 1 Corinthiens 15:14.
+        Il s'agit d'examiner la résurrection comme un historien examinerait tout autre fait de l'Antiquité.
+      </p>
+    </div>
+
+    <div class="featured-arg">
+      <h3>La Méthode Historique Appliquée à la Résurrection</h3>
+      <p>
+        Matthieu Lavagna, inspiré du travail de Gary Habermas et Michael Licona, propose d'appliquer à la
+        résurrection les critères historiographiques standards : <strong>pouvoir explicatif, plausibilité,
+        simplicité, pouvoir d'illumination</strong>. Il identifie cinq faits historiques reconnus
+        par la quasi-totalité des historiens indépendamment de leurs convictions :
+      </p>
+    </div>
+
+    <div class="fact-list" style="margin-top:2rem">
+      <div class="fact-item">
+        <div class="fact-num">1</div>
+        <div class="fact-content">
+          <strong>Jésus est mort sur la croix</strong>
+          <p>Attesté par les quatre Évangiles, les épîtres de Paul, les Actes des Apôtres, Flavius Josèphe
+          (Antiquités XVIII, 63-64), Tacite (Annales XV, 44) et Lucien de Samosate. Même John Crossan,
+          sceptique radical fondateur du Jesus Seminar, l'affirme sans équivoque.</p>
+        </div>
+      </div>
+
+      <div class="fact-item">
+        <div class="fact-num">2</div>
+        <div class="fact-content">
+          <strong>Jésus a été enterré dans le tombeau de Joseph d'Arimathie</strong>
+          <p>Joseph d'Arimathie est une figure historique identifiable. Le fait qu'un membre du Sanhédrin
+          ait rendu ce service à Jésus est trop embarrassant pour avoir été inventé — c'est le critère
+          de l'attestation multiple et du caractère embarrassant.</p>
+        </div>
+      </div>
+
+      <div class="fact-item">
+        <div class="fact-num">3</div>
+        <div class="fact-content">
+          <strong>Le tombeau fut trouvé vide le troisième jour</strong>
+          <p>Les autorités juives n'ont jamais nié le tombeau vide (elles ont dit que les disciples avaient
+          volé le corps — ce qui présuppose qu'il était vide). Le témoignage des femmes comme premières
+          témoins est un critère d'authenticité : aucun inventeur juif du Ier siècle n'aurait attribué
+          cette découverte à des femmes dont le témoignage n'avait pas valeur légale.</p>
+        </div>
+      </div>
+
+      <div class="fact-item">
+        <div class="fact-num">4</div>
+        <div class="fact-content">
+          <strong>Les apôtres, Paul et Jacques affirment avoir vu Jésus ressuscité</strong>
+          <p>Paul cite dans 1 Corinthiens 15:3-8 une tradition crédale datée de 2 à 5 ans après la mort
+          de Jésus (reconnu par tous les spécialistes du NT, dont Ehrman). Jésus apparaît à Pierre, aux Douze,
+          à plus de 500 frères simultanément, puis à Paul lui-même — qui avait persécuté les chrétiens.</p>
+        </div>
+      </div>
+
+      <div class="fact-item">
+        <div class="fact-num">5</div>
+        <div class="fact-content">
+          <strong>Les apôtres ont radicalement changé de comportement et sont morts pour ce témoignage</strong>
+          <p>Des hommes qui fuyaient et reniaient (Pierre), qui persécutaient les chrétiens (Paul), ou qui
+          ne croyaient pas en Jésus (Jacques, son frère) — tous ont radicalement changé et sont morts
+          en affirmant avoir vu le ressuscité. Des imposteurs ne meurent pas pour ce qu'ils savent être faux.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-arg" style="margin-top:2rem; border-left-color: var(--blue)">
+      <h3>Quelle est la meilleure explication historique ?</h3>
+      <p>
+        Les hypothèses alternatives — hallucination collective, vol du corps, évanouissement et réveil —
+        n'expliquent pas l'ensemble des cinq faits. L'hypothèse de la résurrection réelle est la seule
+        qui explique tous les faits simultanément avec le meilleur pouvoir explicatif et la plus grande simplicité.
+        Sir Norman Anderson, juriste de Cambridge, concluait : « Le tombeau vide de Jésus forme un roc
+        sur lequel toutes les théories rationalistes de la résurrection se brisent en vain. »
+      </p>
+      <p>
+        John Lennox, mathématicien et philosophe à Oxford, résume : « Si Jésus est ressuscité des morts,
+        la mort n'est pas la fin, et l'athéisme est faux. »
+      </p>
+      <div class="source-list">
+        <a class="source-pill" href="https://www.amazon.fr/Case-Resurrection-Jesus-Gary-Habermas/dp/0825427886" target="_blank">Habermas &amp; Licona (2004). <em>The Case for the Resurrection</em>. Kregel.</a>
+        <a class="source-pill" href="https://www.amazon.fr/Resurrection-Son-God-Christian-Origins/dp/0800626796" target="_blank">Wright, N. T. (2003). <em>The Resurrection of the Son of God</em>. Fortress Press.</a>
+        <a class="source-pill" href="https://www.amazon.fr/Resurrection-Jesus-New-Historiographical-Approach/dp/0830827315" target="_blank">Licona, M. R. (2010). <em>The Resurrection of Jesus</em>. IVP Academic.</a>
+      </div>
+      <a class="arg-vid-btn" onclick="openModal('otrqzITuSqE',635)" href="javascript:void(0);">▶ Lennox : la résurrection, preuve centrale (10:35)</a>
+      <a class="arg-vid-btn" onclick="openModal('fYgRGBczRHk',0)" href="javascript:void(0);">▶ Lavagna : présentation des preuves</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SAVANTS CROYANTS
+     ============================================================ -->
+<section id="savants" class="bg-dark">
+  <div class="container section-inner">
+    <div class="section-header">
+      <span class="section-tag">Témoignages</span>
+      <h2 class="section-title">Grands Savants et Croyance en Dieu</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        Selon une étude de Baruch Shalev (2002) sur les Prix Nobel des sciences, 90 % se déclarent croyants.
+        La foi et la science ne sont pas opposées — elles ont souvent marché ensemble.
+      </p>
+    </div>
+
+    <div class="scientist-grid">
+      <div class="scientist-card">
+        <div class="scientist-name">Isaac Newton</div>
+        <div class="scientist-field">Physique · Mathématiques<br><em style="color:var(--accent);font-size:0.7rem">Chrétien fervent</em></div>
+      </div>
+      <div class="scientist-card">
+        <div class="scientist-name">Georges Lemaître</div>
+        <div class="scientist-field">Père du Big Bang<br><em style="color:var(--accent);font-size:0.7rem">Prêtre catholique</em></div>
+      </div>
+      <div class="scientist-card">
+        <div class="scientist-name">Gregor Mendel</div>
+        <div class="scientist-field">Fondateur de la génétique<br><em style="color:var(--accent);font-size:0.7rem">Moine augustinien</em></div>
+      </div>
+      <div class="scientist-card">
+        <div class="scientist-name">Louis Pasteur</div>
+        <div class="scientist-field">Microbiologie · Vaccins<br><em style="color:var(--accent);font-size:0.7rem">Catholique pratiquant</em></div>
+      </div>
+      <div class="scientist-card">
+        <div class="scientist-name">Max Planck</div>
+        <div class="scientist-field">Physique quantique (Nobel 1918)<br><em style="color:var(--accent);font-size:0.7rem">Chrétien fervent</em></div>
+      </div>
+      <div class="scientist-card">
+        <div class="scientist-name">Arno Penzias</div>
+        <div class="scientist-field">Prix Nobel 1978<br>Rayonnement fossile Big Bang<br><em style="color:var(--accent);font-size:0.7rem">Croyant</em></div>
+      </div>
+      <div class="scientist-card">
+        <div class="scientist-name">Francis Collins</div>
+        <div class="scientist-field">Directeur du Genome Project<br><em style="color:var(--accent);font-size:0.7rem">Chrétien évangélique</em></div>
+      </div>
+      <div class="scientist-card">
+        <div class="scientist-name">John Lennox</div>
+        <div class="scientist-field">Mathématicien, Oxford<br><em style="color:var(--accent);font-size:0.7rem">Chrétien apologète</em></div>
+      </div>
+      <div class="scientist-card">
+        <div class="scientist-name">Allan Sandage</div>
+        <div class="scientist-field">Cosmologiste, Prix Crafoord<br><em style="color:var(--accent);font-size:0.7rem">Chrétien (converti à 50 ans)</em></div>
+      </div>
+      <div class="scientist-card">
+        <div class="scientist-name">Nicolas Copernic</div>
+        <div class="scientist-field">Héliocentrisme<br><em style="color:var(--accent);font-size:0.7rem">Chanoine catholique</em></div>
+      </div>
+      <div class="scientist-card">
+        <div class="scientist-name">William Thomson (Kelvin)</div>
+        <div class="scientist-field">Thermodynamique<br><em style="color:var(--accent);font-size:0.7rem">Chrétien fervent</em></div>
+      </div>
+      <div class="scientist-card">
+        <div class="scientist-name">Werner Heisenberg</div>
+        <div class="scientist-field">Physique quantique<br><em style="color:var(--accent);font-size:0.7rem">Chrétien luthérien</em></div>
+      </div>
+    </div>
+
+    <div class="blockquote-card" style="margin-top:2rem">
+      « En science, un homme peut tellement se concentrer sur la construction de formules que
+      l'image de Dieu qu'il devrait trouver derrière la façade disparaît de son champ de vision. »
+      <span class="blockquote-attr">— Werner Heisenberg, fondateur de la mécanique quantique</span>
+    </div>
+
+    <div class="blockquote-card">
+      « Ma conviction selon laquelle la foi dans l'existence de Dieu est rationnellement défendable
+      n'a pas faibli, bien au contraire — en travaillant sur le génome humain, j'y ai vu des preuves
+      supplémentaires de la main du Créateur. »
+      <span class="blockquote-attr">— Francis Collins, directeur du Projet Génome Humain,
+        <em>The Language of God</em> (2006)</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VIDEOS
+     ============================================================ -->
+<section id="videos">
+  <div class="container section-inner">
+    <div class="section-header">
+      <span class="section-tag">Ressources audiovisuelles</span>
+      <h2 class="section-title">Vidéos Recommandées</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        Des conférences et débats par des philosophes, scientifiques et apologètes pour approfondir chaque argument.
+      </p>
+    </div>
+
+    <div class="video-grid">
+
+      <div class="video-card">
+        <div class="yt-thumb" onclick="playYT(this,'ZWzys1gojtA')">
+          <img src="https://img.youtube.com/vi/ZWzys1gojtA/hqdefault.jpg" alt="Thomas Guénolé vs Olivier Bonnassies">
+          <div class="yt-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-title">Avons-nous des preuves de l'existence de Dieu ? — Débat complet</div>
+          <div class="video-author">Thomas Guénolé vs Olivier Bonnassies · Dieu, la Science, les Preuves</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="yt-thumb" onclick="playYT(this,'otrqzITuSqE')">
+          <img src="https://img.youtube.com/vi/otrqzITuSqE/hqdefault.jpg" alt="John Lennox: God DOES exist">
+          <div class="yt-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-title">God DOES Exist — Oxford Union</div>
+          <div class="video-author">Prof. John Lennox · Mathématicien, Université d'Oxford</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="yt-thumb" onclick="playYT(this,'ZiQiRMZ2XQU')">
+          <img src="https://img.youtube.com/vi/ZiQiRMZ2XQU/hqdefault.jpg" alt="Dieu la science les preuves - Légende">
+          <div class="yt-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-title">Dieu, la Science, les Preuves</div>
+          <div class="video-author">Michel Bolloré &amp; Olivier Bonnassies · Émission Légende</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="yt-thumb" onclick="playYT(this,'fYgRGBczRHk')">
+          <img src="https://img.youtube.com/vi/fYgRGBczRHk/hqdefault.jpg" alt="Dieu existe t-il ? LA PREUVE">
+          <div class="yt-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-title">Dieu existe-t-il ? — Les preuves cosmologiques, fine-tuning, morales</div>
+          <div class="video-author">Matthieu Lavagna &amp; Frère Paul-Adrien</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="yt-thumb" onclick="playYT(this,'7IA4XriGeZY')">
+          <img src="https://img.youtube.com/vi/7IA4XriGeZY/hqdefault.jpg" alt="On prouve l'existence de Dieu">
+          <div class="yt-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-title">On prouve l'existence de Dieu</div>
+          <div class="video-author">Abbé Raffray &amp; Matthieu Lavagna · Soyez rationnel, devenez catholique</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="yt-thumb" onclick="playYT(this,'ZiNRN20tEQI')">
+          <img src="https://img.youtube.com/vi/ZiNRN20tEQI/hqdefault.jpg" alt="100 raisons de croire en Dieu">
+          <div class="yt-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-title">Montrer que Dieu existe — 100 fois différemment</div>
+          <div class="video-author">Le Catho de Service</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="yt-thumb" onclick="playYT(this,'UnaAFhybsDk')">
+          <img src="https://img.youtube.com/vi/UnaAFhybsDk/hqdefault.jpg" alt="Jésus a-t-il existé ? ONFRAY débunké">
+          <div class="yt-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-title">Jésus a-t-il existé ? — ONFRAY débunké</div>
+          <div class="video-author">Matthieu Lavagna &amp; Frère Paul-Adrien</div>
+        </div>
+      </div>
+
+      <div class="video-card">
+        <div class="yt-thumb" onclick="playYT(this,'TSZXlVF-qVI')">
+          <img src="https://img.youtube.com/vi/TSZXlVF-qVI/hqdefault.jpg" alt="Is There Evidence of God in Mathematics?">
+          <div class="yt-play-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="video-meta">
+          <div class="video-title">Is There Evidence of God in Mathematics?</div>
+          <div class="video-author">Dr. Willie Soon — Astrophysicien</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Livres recommandés -->
+    <div class="section-header" style="margin-top:4rem">
+      <span class="section-tag">Livres</span>
+      <h3 class="section-title" style="font-size:1.6rem">Lectures Recommandées</h3>
+      <div class="gold-line"></div>
+    </div>
+
+    <div class="arg-grid">
+      <div class="arg-card">
+        <div class="arg-icon">📕</div>
+        <h4 class="arg-title">Dieu, la Science, les Preuves</h4>
+        <p class="arg-body">Michel Bolloré &amp; Olivier Bonnassies (2021). Le livre phare de l'apologétique scientifique francophone. 450 000 exemplaires vendus. Synthèse du fine-tuning, du Big Bang, et des preuves cosmologiques.</p>
+        <div class="arg-source"><a href="https://www.amazon.fr/Dieu-science-preuves-aube-r%C3%A9volution/dp/2268103595" target="_blank">Voir sur Amazon →</a></div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-icon">📗</div>
+        <h4 class="arg-title">God's Undertaker: Has Science Buried God?</h4>
+        <p class="arg-body">John Lennox (2009). Le mathématicien d'Oxford analyse les prétentions du scientisme et démontre que la science contemporaine converge vers le théisme. Accessible et rigoureux.</p>
+        <div class="arg-source"><a href="https://www.amazon.fr/Gods-Undertaker-Has-Science-Buried/dp/0745953530" target="_blank">Voir sur Amazon →</a></div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-icon">📘</div>
+        <h4 class="arg-title">The Case for the Resurrection of Jesus</h4>
+        <p class="arg-body">Gary Habermas &amp; Michael Licona (2004). La démonstration la plus complète de la résurrection par méthode historique. Analyse critique des sources et réfutation des hypothèses alternatives.</p>
+        <div class="arg-source"><a href="https://www.amazon.fr/Case-Resurrection-Jesus-Gary-Habermas/dp/0825427886" target="_blank">Voir sur Amazon →</a></div>
+      </div>
+      <div class="arg-card">
+        <div class="arg-icon">📙</div>
+        <h4 class="arg-title">Soyez rationnel, devenez catholique</h4>
+        <p class="arg-body">Matthieu Lavagna (Éditions Marines Nazareth). Présentation claire et rigoureuse des arguments apologétiques classiques adaptée au public francophone contemporain.</p>
+        <div class="arg-source"><a href="https://www.amazon.fr/Soyez-rationnel-devenez-catholique-Lavagna/dp/2916840273" target="_blank">Voir sur Amazon →</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SOURCES
+     ============================================================ -->
+<section id="sources" class="bg-dark">
+  <div class="container section-inner">
+    <div class="section-header">
+      <span class="section-tag">Références académiques</span>
+      <h2 class="section-title">Sources &amp; Références</h2>
+      <div class="gold-line"></div>
+      <p class="section-desc">
+        Toutes les sources citées dans ce site — articles peer-reviewed, livres académiques, textes classiques.
+        Les liens mènent aux publications originales ou à leurs équivalents accessibles.
+      </p>
+    </div>
+
+    <h3 style="color:var(--accent);margin-bottom:1rem;font-size:1.1rem">▸ Cosmologie &amp; Physique</h3>
+    <div class="sources-grid">
+      <div class="source-item">
+        <span class="source-num">[1]</span>
+        Borde, A., Guth, A. H., &amp; Vilenkin, A. (2003). « Inflationary spacetimes are not past-complete. »
+        <em>Physical Review Letters</em>, 90(15), 151301.
+        <br><a href="https://doi.org/10.1103/PhysRevLett.90.151301" target="_blank">doi:10.1103/PhysRevLett.90.151301</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[2]</span>
+        Barrow, J. D., &amp; Tipler, F. J. (1986). <em>The Anthropic Cosmological Principle</em>. Oxford University Press.
+        <br><a href="https://doi.org/10.1093/acprof:oso/9780198751700.001.0001" target="_blank">Oxford Academic</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[3]</span>
+        Penzias, A. A., &amp; Wilson, R. W. (1965). « A Measurement of Excess Antenna Temperature at 4080 Mc/s. »
+        <em>Astrophysical Journal</em>, 142, 419–421.
+        <br><a href="https://doi.org/10.1086/148307" target="_blank">doi:10.1086/148307</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[4]</span>
+        Davies, P. (2006). <em>The Goldilocks Enigma: Why is the Universe Just Right for Life?</em>
+        Houghton Mifflin.
+        <br><a href="https://www.amazon.fr/Goldilocks-Enigma-Universe-Goldilocks-English/dp/0618592261" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[5]</span>
+        Penrose, R. (2004). <em>The Road to Reality: A Complete Guide to the Laws of the Universe</em>.
+        Jonathan Cape.
+        <br><a href="https://www.amazon.fr/Road-Reality-Complete-Guide-Universe/dp/0679776311" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[6]</span>
+        Hoyle, F. (1981). « The Universe: Past and Present Reflections. »
+        <em>Engineering and Science</em>, 45(2), 8–12.
+        <br><a href="https://calteches.library.caltech.edu/3148/1/Hoyle.pdf" target="_blank">Caltech archive PDF</a>
+      </div>
+    </div>
+
+    <h3 style="color:var(--accent);margin:2rem 0 1rem;font-size:1.1rem">▸ Mathématiques &amp; Philosophie des Sciences</h3>
+    <div class="sources-grid">
+      <div class="source-item">
+        <span class="source-num">[7]</span>
+        Wigner, E. P. (1960). « The Unreasonable Effectiveness of Mathematics in the Natural Sciences. »
+        <em>Communications on Pure and Applied Mathematics</em>, 13(1), 1–14.
+        <br><a href="https://doi.org/10.1002/cpa.3160130102" target="_blank">doi:10.1002/cpa.3160130102</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[8]</span>
+        Dirac, P. A. M. (1928). « The Quantum Theory of the Electron. »
+        <em>Proc. R. Soc. London A</em>, 117(778), 610–624.
+        <br><a href="https://doi.org/10.1098/rspa.1928.0023" target="_blank">doi:10.1098/rspa.1928.0023</a>
+      </div>
+    </div>
+
+    <h3 style="color:var(--accent);margin:2rem 0 1rem;font-size:1.1rem">▸ Philosophie &amp; Apologétique</h3>
+    <div class="sources-grid">
+      <div class="source-item">
+        <span class="source-num">[9]</span>
+        Craig, W. L. (1979). <em>The Kalam Cosmological Argument</em>. Macmillan.
+        <br><a href="https://doi.org/10.1093/acprof:oso/9780631218647.001.0001" target="_blank">Springer Link</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[10]</span>
+        Craig, W. L., &amp; Moreland, J. P. (Eds.) (2009).
+        <em>The Blackwell Companion to Natural Theology</em>. Wiley-Blackwell.
+        <br><a href="https://doi.org/10.1002/9781444308334" target="_blank">doi:10.1002/9781444308334</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[11]</span>
+        Plantinga, A. (2011). <em>Where the Conflict Really Lies: Science, Religion, and Naturalism</em>.
+        Oxford University Press.
+        <br><a href="https://global.oup.com/academic/product/where-the-conflict-really-lies-9780199812097" target="_blank">Oxford Academic</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[12]</span>
+        Plantinga, A. (1974). <em>The Nature of Necessity</em>. Clarendon Press.
+        <br><a href="https://doi.org/10.1093/acprof:oso/9780198244141.001.0001" target="_blank">doi:10.1093/acprof:oso/9780198244141</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[13]</span>
+        Lewis, C. S. (1952). <em>Mere Christianity</em>. Geoffrey Bles.
+        <br><a href="https://www.amazon.fr/Mere-Christianity-C-S-Lewis/dp/0060652926" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[14]</span>
+        Chalmers, D. J. (1996). <em>The Conscious Mind: In Search of a Fundamental Theory</em>.
+        Oxford University Press.
+        <br><a href="https://doi.org/10.1093/acprof:oso/9780195117899.001.0001" target="_blank">Oxford Academic</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[15]</span>
+        Lennox, J. C. (2009). <em>God's Undertaker: Has Science Buried God?</em> Lion Hudson.
+        <br><a href="https://www.amazon.fr/Gods-Undertaker-Has-Science-Buried/dp/0745953530" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[16]</span>
+        Bolloré, M., &amp; Bonnassies, O. (2021). <em>Dieu, la science, les preuves</em>.
+        Éd. Guy Trédaniel.
+        <br><a href="https://www.amazon.fr/Dieu-science-preuves-aube-r%C3%A9volution/dp/2268103595" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[17]</span>
+        Shalev, B. A. (2002). <em>100 Years of Nobel Prizes</em>. Americas Group.
+        [Étude : 90 % des Prix Nobel de science se déclarent croyants]
+        <br><a href="https://www.amazon.fr/100-Years-Nobel-Prizes-Shalev/dp/0935047379" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[18]</span>
+        Thomas d'Aquin (~1265). <em>Summa Theologica</em>, I, q.2, a.3 (Les Cinq Voies).
+        <br><a href="https://www.newadvent.org/summa/1002.htm" target="_blank">NewAdvent.org (traduction anglaise)</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[19]</span>
+        Anselme de Cantorbéry (1078). <em>Proslogion</em>.
+        <br><a href="https://plato.stanford.edu/entries/ontological-arguments/" target="_blank">Stanford Encyclopedia of Philosophy</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[20]</span>
+        Leibniz, G. W. (1714). <em>Principes de la nature et de la grâce fondés en raison</em>.
+        <br><a href="https://leibniz-translations.com/principles.htm" target="_blank">leibniz-translations.com</a>
+      </div>
+    </div>
+
+    <h3 style="color:var(--accent);margin:2rem 0 1rem;font-size:1.1rem">▸ Histoire &amp; Jésus</h3>
+    <div class="sources-grid">
+      <div class="source-item">
+        <span class="source-num">[21]</span>
+        Tacite. <em>Annales</em>, XV, 44 (~115 ap. J.-C.).
+        <br><a href="https://www.thelatinlibrary.com/tacitus/tac.ann15.shtml" target="_blank">Texte latin — thelatinlibrary.com</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[22]</span>
+        Flavius Josèphe. <em>Antiquités Juives</em>, XVIII, 63-64 et XX, 200 (~94 ap. J.-C.).
+        <br><a href="https://www.gutenberg.org/files/2848/2848-h/2848-h.htm" target="_blank">Gutenberg.org</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[23]</span>
+        Ehrman, B. D. (2012). <em>Did Jesus Exist? The Historical Argument for Jesus of Nazareth</em>.
+        HarperOne.
+        <br><a href="https://www.amazon.fr/Did-Jesus-Exist-Historical-Argument/dp/0062206443" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[24]</span>
+        Theissen, G., &amp; Merz, A. (1998). <em>The Historical Jesus: A Comprehensive Guide</em>.
+        Fortress Press.
+        <br><a href="https://www.amazon.fr/Historical-Jesus-Comprehensive-Guide/dp/0800631226" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[25]</span>
+        Habermas, G. R., &amp; Licona, M. R. (2004).
+        <em>The Case for the Resurrection of Jesus</em>. Kregel Publications.
+        <br><a href="https://www.amazon.fr/Case-Resurrection-Jesus-Gary-Habermas/dp/0825427886" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[26]</span>
+        Wright, N. T. (2003). <em>The Resurrection of the Son of God</em>. Fortress Press.
+        <br><a href="https://www.amazon.fr/Resurrection-Son-God-Christian-Origins/dp/0800626796" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[27]</span>
+        Licona, M. R. (2010). <em>The Resurrection of Jesus: A New Historiographical Approach</em>.
+        IVP Academic.
+        <br><a href="https://www.amazon.fr/Resurrection-Jesus-New-Historiographical-Approach/dp/0830827315" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[28]</span>
+        Paul de Tarse. <em>1ère Épître aux Corinthiens</em>, 15:3-8 (~53-55 ap. J.-C.).
+        [Tradition crédale datée par les experts à 2-5 ans après la mort du Christ]
+        <br><a href="https://www.biblegateway.com/passage/?search=1+Corinthians+15%3A3-8&version=LSG" target="_blank">BibleGateway.com (version LSG)</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[29]</span>
+        Sanders, E. P. (1993). <em>The Historical Figure of Jesus</em>. Penguin Books.
+        <br><a href="https://www.amazon.fr/Historical-Figure-Jesus-E-Sanders/dp/014014499X" target="_blank">Amazon FR</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[30]</span>
+        Pline le Jeune. <em>Lettres à Trajan</em>, X, 96 (112 ap. J.-C.).
+        <br><a href="https://www.thelatinlibrary.com/pliny.ep10.html" target="_blank">Texte latin — thelatinlibrary.com</a>
+      </div>
+    </div>
+
+    <h3 style="color:var(--accent);margin:2rem 0 1rem;font-size:1.1rem">▸ Ressources Vidéo (YouTube)</h3>
+    <div class="sources-grid">
+      <div class="source-item">
+        <span class="source-num">[V1]</span>
+        Bolloré &amp; Bonnassies. « Dieu, la Science, les Preuves. » Émission Légende.
+        <br><a href="https://www.youtube.com/watch?v=ZiQiRMZ2XQU" target="_blank">youtube.com/watch?v=ZiQiRMZ2XQU</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[V2]</span>
+        Lavagna, M. &amp; Paul-Adrien, fr. « Dieu existe-t-il ? LA PREUVE. »
+        <br><a href="https://www.youtube.com/watch?v=fYgRGBczRHk" target="_blank">youtube.com/watch?v=fYgRGBczRHk</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[V3]</span>
+        Guénolé, T. vs Bonnassies, O. « Avons-nous des preuves de l'existence de Dieu ? »
+        <br><a href="https://www.youtube.com/watch?v=ZWzys1gojtA" target="_blank">youtube.com/watch?v=ZWzys1gojtA</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[V4]</span>
+        Lennox, J. C. « God DOES Exist. » Oxford Union.
+        <br><a href="https://www.youtube.com/watch?v=otrqzITuSqE" target="_blank">youtube.com/watch?v=otrqzITuSqE</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[V5]</span>
+        Raffray &amp; Lavagna. « On prouve l'existence de Dieu. »
+        <br><a href="https://www.youtube.com/watch?v=7IA4XriGeZY" target="_blank">youtube.com/watch?v=7IA4XriGeZY</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[V6]</span>
+        Le Catho de Service. « Montrer que Dieu existe, 100 fois différemment. »
+        <br><a href="https://www.youtube.com/watch?v=ZiNRN20tEQI" target="_blank">youtube.com/watch?v=ZiNRN20tEQI</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[V7]</span>
+        Lavagna, M. « Jésus a-t-il existé ? ONFRAY débunké. »
+        <br><a href="https://www.youtube.com/watch?v=UnaAFhybsDk" target="_blank">youtube.com/watch?v=UnaAFhybsDk</a>
+      </div>
+      <div class="source-item">
+        <span class="source-num">[V8]</span>
+        Soon, W. « Is There Evidence of God in Mathematics? »
+        <br><a href="https://www.youtube.com/watch?v=TSZXlVF-qVI" target="_blank">youtube.com/watch?v=TSZXlVF-qVI</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer style="background:#050810;border-top:1px solid rgba(201,168,76,0.15);padding:3rem 1.5rem;text-align:center">
+  <div class="nav-logo" style="font-size:1.5rem;margin-bottom:0.8rem">✦ Dieu Existe</div>
+  <p style="color:var(--text-muted);font-family:Arial,sans-serif;font-size:0.82rem;max-width:600px;margin:0 auto 1.5rem">
+    Ce site est un outil de recherche et de réflexion philosophique, scientifique et historique.
+    Il s'inscrit dans la tradition de la théologie naturelle et de l'apologétique rationnelle.
+    Toutes les sources sont citées et vérifiables.
+  </p>
+  <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap">
+    <a href="#philosophie" style="color:var(--text-muted);font-family:Arial,sans-serif;font-size:0.78rem">Philosophie</a>
+    <a href="#science" style="color:var(--text-muted);font-family:Arial,sans-serif;font-size:0.78rem">Science</a>
+    <a href="#mathematiques" style="color:var(--text-muted);font-family:Arial,sans-serif;font-size:0.78rem">Mathématiques</a>
+    <a href="#morale" style="color:var(--text-muted);font-family:Arial,sans-serif;font-size:0.78rem">Morale</a>
+    <a href="#histoire" style="color:var(--text-muted);font-family:Arial,sans-serif;font-size:0.78rem">Histoire</a>
+    <a href="#resurrection" style="color:var(--text-muted);font-family:Arial,sans-serif;font-size:0.78rem">Résurrection</a>
+    <a href="#sources" style="color:var(--text-muted);font-family:Arial,sans-serif;font-size:0.78rem">Sources</a>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut">↑</button>
+
+<!-- VIDEO MODAL -->
+<div id="vid-modal" onclick="closeModalBackdrop(event)">
+  <div class="vid-modal-inner">
+    <div class="vid-modal-header">
+      <span class="vid-modal-title" id="vid-modal-title">Vidéo</span>
+      <button class="vid-modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="vid-modal-frame" id="vid-modal-frame"></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+// ── Thumbnail grid: click → embed iframe in place ──────────────
+function playYT(el, videoId, startSec) {
+  var t = startSec ? '&start=' + startSec : '';
+  el.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1' + t + '" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>';
+  el.style.cursor = 'default';
+}
+
+// ── Video IDs → readable titles ────────────────────────────────
+var VID_TITLES = {
+  'ZiQiRMZ2XQU': 'Dieu, la Science, les Preuves — Légende',
+  'ZWzys1gojtA': 'Guénolé vs Bonnassies — Débat complet',
+  'ZiNRN20tEQI': '100 raisons de croire en Dieu',
+  'fYgRGBczRHk': 'Dieu existe-t-il ? — Lavagna & Frère Paul-Adrien',
+  '7IA4XriGeZY': 'On prouve l\'existence de Dieu — Abbé Raffray',
+  'otrqzITuSqE': 'God DOES Exist — Prof. John Lennox, Oxford',
+  'UnaAFhybsDk': 'Jésus a-t-il existé ? ONFRAY débunké — Lavagna',
+  'TSZXlVF-qVI': 'Is There Evidence of God in Mathematics? — Dr. Soon'
+};
+
+// ── Modal : open ────────────────────────────────────────────────
+function openModal(videoId, startSec) {
+  var frame = document.getElementById('vid-modal-frame');
+  var title = document.getElementById('vid-modal-title');
+  var t = startSec ? '&start=' + startSec : '';
+  frame.innerHTML = '<iframe src="https://www.youtube.com/embed/' + videoId + '?autoplay=1' + t + '" frameborder="0" allowfullscreen allow="autoplay; encrypted-media"></iframe>';
+  title.textContent = VID_TITLES[videoId] || 'Vidéo';
+  document.getElementById('vid-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  return false;
+}
+
+// ── Modal : close ───────────────────────────────────────────────
+function closeModal() {
+  document.getElementById('vid-modal').classList.remove('open');
+  document.getElementById('vid-modal-frame').innerHTML = ''; // stop video
+  document.body.style.overflow = '';
+}
+
+function closeModalBackdrop(e) {
+  if (e.target === document.getElementById('vid-modal')) closeModal();
+}
+
+// Close with Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeModal();
+});
+
+// Progress bar
+const progressBar = document.getElementById('progress-bar');
+window.addEventListener('scroll', () => {
+  const scrollTop = window.scrollY;
+  const docHeight = document.body.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  progressBar.style.width = progress + '%';
+
+  // Back to top
+  const backTop = document.getElementById('back-top');
+  if (scrollTop > 400) backTop.classList.add('visible');
+  else backTop.classList.remove('visible');
+});
+
+// Mobile menu
+function toggleMenu() {
+  document.getElementById('mobile-nav').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobile-nav').classList.remove('open');
+}
+
+// Collapsible sections
+function toggleCollapse(header) {
+  const section = header.parentElement;
+  section.classList.toggle('open');
+}
+
+// Smooth nav highlighting
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.style.color = '';
+        if (link.getAttribute('href') === '#' + id) {
+          link.style.color = 'var(--accent)';
+        }
+      });
+    }
+  });
+}, { threshold: 0.2, rootMargin: '-70px 0px 0px 0px' });
+
+sections.forEach(s => observer.observe(s));
+
+// Card entrance animation
+const cards = document.querySelectorAll('.arg-card, .fact-item, .video-card, .scientist-card');
+const cardObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+cards.forEach(card => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(20px)';
+  card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  cardObserver.observe(card);
+});
+</script>
+
+</body>
+</html>
