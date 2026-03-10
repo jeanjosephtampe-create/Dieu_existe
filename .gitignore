@@ -1,0 +1,42 @@
+# Jekyll build output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Gemfile lock (GitHub Pages gère ses propres versions)
+Gemfile.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.python-version
+*.egg-info/
+
+# Rapports générés par les agents (sortie locale uniquement)
+agents/reports/
+
+# Environnement local
+.env
+.env.*
+*.key
+*.pem
+secrets.yml
+secrets.yaml
+
+# Éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node (si jamais)
+node_modules/

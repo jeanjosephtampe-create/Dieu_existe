@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dieu-preuves.fr/sitemap.xml

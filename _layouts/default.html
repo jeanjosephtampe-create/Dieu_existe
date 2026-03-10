@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  {%- seo -%}
+
+  <!-- Preconnect pour performance -->
+  <link rel="preconnect" href="https://img.youtube.com">
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+  <!-- Open Graph enrichi -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:image" content="{{ site.url }}/assets/img/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Données structurées Schema.org WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "{{ site.title }}",
+    "url": "{{ site.url }}",
+    "description": "{{ site.description }}",
+    "inLanguage": "fr",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ site.url }}/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Données structurées Schema.org FAQPage (boost SEO majeur) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quelles sont les preuves philosophiques de l'existence de Dieu ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Les principales preuves philosophiques incluent l'argument cosmologique de Kalam, l'argument du mouvement d'Aristote, l'argument de la contingence de Thomas d'Aquin, l'argument ontologique d'Anselme et l'argument moral de C.S. Lewis."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce que le théorème BGV et que prouve-t-il ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le théorème de Borde-Guth-Vilenkin (2003), publié dans Physical Review Letters, démontre mathématiquement que tout univers en expansion, y compris les multivers, doit avoir eu un commencement absolu. Ce commencement appelle une cause externe non-matérielle."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce que le fine-tuning de l'univers ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Le réglage fin (fine-tuning) désigne le fait que les ~20 constantes physiques fondamentales de l'univers sont réglées avec une précision extraordinaire pour permettre l'existence de la vie. La constante gravitationnelle doit être précise à 1 sur 10⁶⁰."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Jésus-Christ a-t-il réellement existé historiquement ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oui. L'existence de Jésus est attestée par de nombreuses sources non-chrétiennes : Tacite (Annales XV, 44), Flavius Josèphe (Antiquités Juives), Pline le Jeune. Le consensus des historiens, croyants ou non (Ehrman, Sanders, Casey), affirme l'historicité de Jésus."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Qu'est-ce que l'argument moral pour l'existence de Dieu ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "L'argument moral, développé par C.S. Lewis et William Lane Craig, part du fait qu'il existe des vérités morales objectives. La matière inerte ne pouvant fonder des valeurs morales, il doit exister un être personnel comme fondement de la morale objective."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Données structurées Schema.org BreadcrumbList -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Philosophie", "item": "{{ site.url }}/#philosophie"},
+      {"@type": "ListItem", "position": 2, "name": "Science", "item": "{{ site.url }}/#science"},
+      {"@type": "ListItem", "position": 3, "name": "Mathématiques", "item": "{{ site.url }}/#mathematiques"},
+      {"@type": "ListItem", "position": 4, "name": "Conscience", "item": "{{ site.url }}/#conscience"},
+      {"@type": "ListItem", "position": 5, "name": "Morale", "item": "{{ site.url }}/#morale"},
+      {"@type": "ListItem", "position": 6, "name": "Histoire", "item": "{{ site.url }}/#histoire"},
+      {"@type": "ListItem", "position": 7, "name": "Résurrection", "item": "{{ site.url }}/#resurrection"}
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+</head>
+<body>
+<div class="page-top">
+
+  <div id="progress-bar" aria-hidden="true"></div>
+
+  {% include nav.html %}
+
+  {{ content }}
+
+  {% include footer.html %}
+
+</div>
+
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Retour en haut" aria-label="Retour en haut de page">↑</button>
+
+{% include video-modal.html %}
+
+<script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

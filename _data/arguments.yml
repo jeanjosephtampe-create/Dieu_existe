@@ -1,0 +1,229 @@
+# ============================================================
+#  _data/arguments.yml
+#  Pour modifier un argument : éditer uniquement ce fichier.
+#  Structure : sections > arguments
+# ============================================================
+
+sections:
+
+  - id: philosophie
+    niveau: "I"
+    tag: "Arguments philosophiques classiques"
+    title: "Les Fondements Philosophiques"
+    desc: "Ces arguments partent des réalités les plus universelles : l'existence, la causalité, le mouvement, la contingence. Ils sont les plus fondamentaux car ils ne dépendent d'aucune découverte scientifique particulière."
+    bg: ""
+
+    featured:
+      tag1: "Le plus fondamental"
+      tag2: "Kalam · Leibniz"
+      title: "1. L'Argument Cosmologique — Tout ce qui commence à exister a une cause"
+      body: |
+        L'argument Kalam, popularisé par le philosophe William Lane Craig et fondé sur des penseurs arabes médiévaux
+        (Al-Ghazali, XIe s.), ainsi que sur Leibniz, se résume en trois prémisses :
+      premises:
+        - "<strong>Prémisse 1 :</strong> Tout ce qui commence à exister a une cause externe à lui-même."
+        - "<strong>Prémisse 2 :</strong> L'univers a commencé à exister (confirmé par le Big Bang et le théorème BGV)."
+        - "<strong>Conclusion :</strong> L'univers a une cause externe — non spatiale, non temporelle, non matérielle, immensément puissante et transcendante. Ce que nous appelons Dieu."
+      body2: |
+        Cette cause, étant extérieure au temps et à l'espace, ne peut être causée elle-même (elle est nécessaire et éternelle).
+        Leibniz formulait cela comme le <em>Principe de Raison Suffisante</em> : « Rien n'arrive sans raison pourquoi il en soit ainsi et non autrement. »
+      quote:
+        text: "Pourquoi y a-t-il quelque chose plutôt que rien ? Dieu est la réponse à cette question."
+        author: "Allan Sandage, cosmologiste, Prix Crafoord (1987)"
+      videos:
+        - id: fYgRGBczRHk
+          start: 111
+          label: "Lavagna explique le Kalam (1:51)"
+        - id: ZWzys1gojtA
+          start: 163
+          label: "Bonnassies : « Si Dieu existe… » (2:43)"
+
+    arguments:
+      - icon: "∅"
+        title: "Le néant ne crée rien"
+        body: |
+          Si à un moment il y avait eu un néant absolu — aucun espace, aucun temps, aucune énergie, aucune loi —
+          il n'y aurait toujours rien. Puisqu'il y a quelque chose aujourd'hui, il n'y a jamais eu de néant absolu.
+          Il y a donc toujours eu un <em>être nécessaire</em>, sans commencement, sans cause extérieure.
+          Cet être nécessaire est ce que nous appelons Dieu.
+        source_text: "Leibniz, <em>Monadologie</em> §§45-48 (1714)"
+        source_url: "https://plato.stanford.edu/entries/cosmological-argument/"
+        source_link_label: "Stanford Encyclopedia"
+        video_id: ZiNRN20tEQI
+        video_start: 608
+        video_label: "Voir dans la vidéo (10:08)"
+
+      - icon: "⚙️"
+        title: "L'Argument du Mouvement (Aristote)"
+        body: |
+          Tout ce qui est en mouvement est mû par autre chose. Si l'on remonte la chaîne des moteurs,
+          on ne peut aller à l'infini (régression infinie sans explication). Il faut donc un
+          <em>Premier Moteur non mû</em>. Aristote l'appelait le « Moteur Immobile ». Thomas d'Aquin en fait sa première voie.
+        source_text: "Aristote, <em>Physique</em> VIII · Thomas d'Aquin, <em>Summa Theologica</em> I, q.2, a.3"
+        video_id: ZiNRN20tEQI
+        video_start: 122
+        video_label: "Voir dans la vidéo (2:02)"
+
+      - icon: "◇"
+        title: "L'Argument de la Contingence"
+        body: |
+          Toutes les choses que nous observons sont <em>contingentes</em> — elles auraient pu ne pas exister.
+          Si tout est contingent, il devrait y avoir un moment où rien n'existait. Mais si rien n'avait existé,
+          rien ne pourrait exister maintenant. Donc il doit exister un être <em>nécessaire</em>, qui ne peut
+          pas ne pas exister. C'est la troisième voie de Thomas d'Aquin.
+        source_text: "Thomas d'Aquin, <em>Summa Theologica</em> I, q.2, a.3 (3ème voie)"
+        source_url: "https://plato.stanford.edu/entries/ontological-arguments/"
+        source_link_label: "Stanford Encyclopedia"
+        video_id: 7IA4XriGeZY
+        video_start: 175
+        video_label: "Abbé Raffray : les 5 voies (2:55)"
+
+      - icon: "♾"
+        title: "L'Argument Ontologique (Anselme)"
+        body: |
+          Anselme (1078) définit Dieu comme « ce dont on ne peut rien concevoir de plus grand ».
+          Un tel être doit exister non seulement dans l'esprit mais dans la réalité. Plantinga a développé
+          une version modale : si Dieu est <em>possible</em>, alors Dieu est <em>nécessaire</em>.
+        source_text: "Anselme, <em>Proslogion</em> (1078) · Plantinga, A. (1974). <em>The Nature of Necessity</em>. Oxford."
+        video_id: 7IA4XriGeZY
+        video_start: 120
+        video_label: "Abbé Raffray : raisonnement (2:00)"
+
+      - icon: "⭐"
+        title: "L'Argument de la Perfection (Thomas d'Aquin)"
+        body: |
+          Nous observons des degrés de qualité : les choses sont plus ou moins vraies, bonnes, belles.
+          Ces degrés ne peuvent s'expliquer que par rapport à un maximum absolu — souverainement vrai, bon, noble.
+          Ce maximum, source de toute qualité, est Dieu. C'est la quatrième voie de Thomas d'Aquin.
+        source_text: "Thomas d'Aquin, <em>Summa Theologica</em> I, q.2, a.3 (4ème voie) · Aristote, <em>Métaphysique</em>"
+        video_id: ZiNRN20tEQI
+        video_start: 151
+        video_label: "Voir dans la vidéo (2:31)"
+
+      - icon: "🌌"
+        title: "L'Ordre et la Finalité (5ème voie)"
+        body: |
+          Les choses sans intelligence — lois physiques, équations, structures naturelles — agissent
+          toujours orientées vers une fin. Des choses sans connaissance ne peuvent viser un but que si
+          un être intelligent les dirige. Il existe donc un être intelligent qui ordonne la nature.
+          C'est la cinquième voie de Thomas d'Aquin.
+        source_text: "Thomas d'Aquin, <em>Summa Theologica</em> I, q.2, a.3 (5ème voie)"
+        video_id: otrqzITuSqE
+        video_start: 56
+        video_label: "Lennox : science et finalité (0:56)"
+
+  # ──────────────────────────────────────────────────────────
+  - id: science
+    niveau: "II"
+    tag: "Arguments scientifiques contemporains"
+    title: "Ce Que La Science Révèle"
+    desc: "La physique moderne a redécouvert indépendamment les conclusions de la philosophie : l'univers a un début radical, et ses paramètres sont réglés avec une précision astronomique."
+    bg: "bg-dark"
+
+    featured:
+      tag1: "Physique"
+      tag2: "Peer-reviewed"
+      title: "Le Théorème de Borde-Guth-Vilenkin (2003)"
+      body: |
+        En 2003, les physiciens Borde, Guth et Vilenkin ont démontré mathématiquement que
+        <strong>tout univers en expansion (y compris les multivers) doit avoir eu un commencement absolu</strong>,
+        publié dans <em>Physical Review Letters</em>. Vilenkin lui-même, athée, reconnaît :
+        « L'évidence suggère que l'univers a un commencement. »
+      videos:
+        - id: ZiNRN20tEQI
+          start: 31
+          label: "Le début radical de l'univers (0:31)"
+        - id: otrqzITuSqE
+          start: 130
+          label: "Lennox : pourquoi y a-t-il quelque chose ? (2:10)"
+
+    arguments:
+      - icon: "🌡️"
+        title: "La 2ème Loi de la Thermodynamique"
+        body: |
+          L'entropie de l'univers augmente toujours. Si l'univers existait depuis une infinité de temps,
+          toute son énergie serait déjà dissipée — « mort thermique ». Puisque nous existons encore,
+          l'univers n'est pas éternel : il a eu un début. Ce qui a un début a une cause.
+        source_text: "Clausius, R. (1865). <em>Annalen der Physik</em>"
+        source_url: "https://plato.stanford.edu/entries/time-thermo/"
+        source_link_label: "Stanford Encyclopedia of Philosophy"
+        video_id: ZiNRN20tEQI
+        video_start: 92
+        video_label: "Voir dans la vidéo (1:32)"
+
+      - icon: "🎯"
+        title: "Le Réglage Fin de l'Univers (Fine-Tuning)"
+        highlight: true
+        body: |
+          L'univers contient environ 20 constantes physiques fondamentales. Si l'une variait d'une infime fraction,
+          aucune vie ne serait possible. La constante gravitationnelle doit être précise à 1 chiffre sur 10⁶⁰.
+          La probabilité que toutes ces constantes soient réunies par hasard est astronomiquement impossible.
+        source_text: "Barrow &amp; Tipler (1986). <em>The Anthropic Cosmological Principle</em>. Oxford."
+        source_url: "https://doi.org/10.1093/acprof:oso/9780198751700.001.0001"
+        video_id: ZiNRN20tEQI
+        video_start: 398
+        video_label: "L'analogie de l'Euromillion (6:38)"
+
+      - icon: "🌀"
+        title: "La Réfutation du Multivers"
+        body: |
+          Pour expliquer le fine-tuning sans Dieu, certains proposent les multivers. Mais les calculs montrent
+          que même avec des multivers, la probabilité reste absurdement faible. De plus, tout multivers suppose
+          un mécanisme générateur soumis aux mêmes lois — et le théorème BGV s'applique aux multivers.
+          Ce n'est pas une explication, c'est un report du problème.
+        source_text: "Collins, R. (2009) in Craig &amp; Moreland, <em>Blackwell Companion to Natural Theology</em>"
+        video_id: ZiNRN20tEQI
+        video_start: 428
+        video_label: "Voir dans la vidéo (7:08)"
+
+      - icon: "🧬"
+        title: "L'Origine de la Vie — Information et Complexité"
+        body: |
+          La cellule la plus simple contient plus d'informations que l'Encyclopædia Britannica.
+          Fred Hoyle, astronome et athée notoire, calcula que la probabilité d'assembler aléatoirement
+          une seule protéine fonctionnelle est de 10⁻⁴⁰⁰⁰⁰. Il compara cela à un ouragan assemblant
+          un Boeing 747 en soufflant dans une décharge.
+        source_text: "Hoyle, F. (1981). <em>Engineering and Science</em>, 12-16"
+        video_id: ZiNRN20tEQI
+        video_start: 275
+        video_label: "Voir dans la vidéo (4:35)"
+
+  # ──────────────────────────────────────────────────────────
+  - id: mathematiques
+    niveau: "III"
+    tag: "Arguments mathématiques"
+    title: "L'Efficacité Déraisonnable des Mathématiques"
+    desc: "Comment se fait-il que des structures mathématiques abstraites, inventées dans l'esprit humain, décrivent parfaitement la réalité physique de l'univers ?"
+    bg: ""
+
+  # ──────────────────────────────────────────────────────────
+  - id: conscience
+    niveau: "IV"
+    tag: "Conscience, raison et morale"
+    title: "La Conscience et la Fiabilité de la Raison"
+    desc: "Si nous sommes de pures machines biologiques issues d'un processus aveugle, pourquoi faire confiance à notre propre raisonnement ?"
+    bg: "bg-dark"
+
+  # ──────────────────────────────────────────────────────────
+  - id: morale
+    niveau: "IV"
+    tag: "Argument moral"
+    title: "L'Existence d'une Morale Objective"
+    desc: "Si le bien et le mal existent objectivement — ce que tout le monde admet — il faut les ancrer quelque part. Dans quoi ?"
+    bg: ""
+
+  # ──────────────────────────────────────────────────────────
+  - id: histoire
+    niveau: "V"
+    tag: "Arguments historiques"
+    title: "Jésus : Existence Historique"
+    desc: "L'historicité de Jésus-Christ est l'une des questions les mieux attestées de l'Antiquité, confirmée par des sources chrétiennes et non chrétiennes."
+    bg: "bg-dark"
+
+  # ──────────────────────────────────────────────────────────
+  - id: resurrection
+    niveau: "V"
+    tag: "Le fait central du christianisme"
+    title: "La Résurrection du Christ"
+    desc: "Il s'agit d'examiner la résurrection comme un historien examinerait tout autre fait de l'Antiquité."
+    bg: ""

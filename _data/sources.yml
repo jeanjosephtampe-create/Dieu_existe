@@ -1,0 +1,119 @@
+# ============================================================
+#  _data/sources.yml
+# ============================================================
+
+categories:
+  - title: "Cosmologie & Physique"
+    items:
+      - num: "1"
+        text: 'Borde, A., Guth, A. H., & Vilenkin, A. (2003). « Inflationary spacetimes are not past-complete. » <em>Physical Review Letters</em>, 90(15), 151301.'
+        url: "https://doi.org/10.1103/PhysRevLett.90.151301"
+        link_label: "doi:10.1103/PhysRevLett.90.151301"
+      - num: "2"
+        text: "Barrow, J. D., & Tipler, F. J. (1986). <em>The Anthropic Cosmological Principle</em>. Oxford University Press."
+        url: "https://doi.org/10.1093/acprof:oso/9780198751700.001.0001"
+        link_label: "Oxford Academic"
+      - num: "3"
+        text: 'Penzias, A. A., & Wilson, R. W. (1965). « A Measurement of Excess Antenna Temperature at 4080 Mc/s. » <em>Astrophysical Journal</em>, 142, 419–421.'
+        url: "https://doi.org/10.1086/148307"
+        link_label: "doi:10.1086/148307"
+      - num: "4"
+        text: "Davies, P. (2006). <em>The Goldilocks Enigma</em>. Houghton Mifflin."
+        url: "https://www.amazon.fr/Goldilocks-Enigma-Universe-Goldilocks-English/dp/0618592261"
+        link_label: "Amazon FR"
+      - num: "5"
+        text: "Penrose, R. (2004). <em>The Road to Reality</em>. Jonathan Cape."
+        url: "https://www.amazon.fr/Road-Reality-Complete-Guide-Universe/dp/0679776311"
+        link_label: "Amazon FR"
+      - num: "6"
+        text: 'Hoyle, F. (1981). « The Universe: Past and Present Reflections. » <em>Engineering and Science</em>, 45(2), 8–12.'
+        url: "https://calteches.library.caltech.edu/3148/1/Hoyle.pdf"
+        link_label: "Caltech archive PDF"
+
+  - title: "Mathématiques & Philosophie des Sciences"
+    items:
+      - num: "7"
+        text: 'Wigner, E. P. (1960). « The Unreasonable Effectiveness of Mathematics in the Natural Sciences. » <em>Communications on Pure and Applied Mathematics</em>, 13(1), 1–14.'
+        url: "https://doi.org/10.1002/cpa.3160130102"
+        link_label: "doi:10.1002/cpa.3160130102"
+      - num: "8"
+        text: 'Dirac, P. A. M. (1928). « The Quantum Theory of the Electron. » <em>Proc. R. Soc. London A</em>, 117(778), 610–624.'
+        url: "https://doi.org/10.1098/rspa.1928.0023"
+        link_label: "doi:10.1098/rspa.1928.0023"
+
+  - title: "Philosophie & Apologétique"
+    items:
+      - num: "9"
+        text: "Craig, W. L. (1979). <em>The Kalam Cosmological Argument</em>. Macmillan."
+        url: "https://doi.org/10.1093/acprof:oso/9780631218647.001.0001"
+        link_label: "Springer Link"
+      - num: "10"
+        text: "Craig, W. L., & Moreland, J. P. (Eds.) (2009). <em>The Blackwell Companion to Natural Theology</em>. Wiley-Blackwell."
+        url: "https://doi.org/10.1002/9781444308334"
+        link_label: "doi:10.1002/9781444308334"
+      - num: "11"
+        text: "Plantinga, A. (2011). <em>Where the Conflict Really Lies</em>. Oxford University Press."
+        url: "https://global.oup.com/academic/product/where-the-conflict-really-lies-9780199812097"
+        link_label: "Oxford Academic"
+      - num: "12"
+        text: "Lewis, C. S. (1952). <em>Mere Christianity</em>. Geoffrey Bles."
+        url: "https://www.amazon.fr/Mere-Christianity-C-S-Lewis/dp/0060652926"
+        link_label: "Amazon FR"
+      - num: "13"
+        text: "Chalmers, D. J. (1996). <em>The Conscious Mind</em>. Oxford University Press."
+        url: "https://doi.org/10.1093/acprof:oso/9780195117899.001.0001"
+        link_label: "Oxford Academic"
+      - num: "14"
+        text: "Bolloré, M., & Bonnassies, O. (2021). <em>Dieu, la science, les preuves</em>. Éd. Guy Trédaniel."
+        url: "https://www.amazon.fr/Dieu-science-preuves-aube-r%C3%A9volution/dp/2268103595"
+        link_label: "Amazon FR"
+      - num: "15"
+        text: "Shalev, B. A. (2002). <em>100 Years of Nobel Prizes</em>. Americas Group. [90 % des Prix Nobel de science croyants]"
+        url: "https://www.amazon.fr/100-Years-Nobel-Prizes-Shalev/dp/0935047379"
+        link_label: "Amazon FR"
+
+  - title: "Histoire & Jésus"
+    items:
+      - num: "16"
+        text: "Tacite. <em>Annales</em>, XV, 44 (~115 ap. J.-C.)."
+        url: "https://www.thelatinlibrary.com/tacitus/tac.ann15.shtml"
+        link_label: "Texte latin original"
+      - num: "17"
+        text: "Flavius Josèphe. <em>Antiquités Juives</em>, XVIII, 63-64 et XX, 200 (~94 ap. J.-C.)."
+        url: "https://www.gutenberg.org/files/2848/2848-h/2848-h.htm"
+        link_label: "Gutenberg.org"
+      - num: "18"
+        text: "Ehrman, B. D. (2012). <em>Did Jesus Exist?</em> HarperOne."
+        url: "https://www.amazon.fr/Did-Jesus-Exist-Historical-Argument/dp/0062206443"
+        link_label: "Amazon FR"
+      - num: "19"
+        text: "Habermas, G. R., & Licona, M. R. (2004). <em>The Case for the Resurrection of Jesus</em>. Kregel Publications."
+        url: "https://www.amazon.fr/Case-Resurrection-Jesus-Gary-Habermas/dp/0825427886"
+        link_label: "Amazon FR"
+      - num: "20"
+        text: "Wright, N. T. (2003). <em>The Resurrection of the Son of God</em>. Fortress Press."
+        url: "https://www.amazon.fr/Resurrection-Son-God-Christian-Origins/dp/0800626796"
+        link_label: "Amazon FR"
+
+  - title: "Ressources Vidéo (YouTube)"
+    items:
+      - num: "V1"
+        text: 'Bolloré & Bonnassies. « Dieu, la Science, les Preuves. » Émission Légende.'
+        url: "https://www.youtube.com/watch?v=ZiQiRMZ2XQU"
+        link_label: "YouTube"
+      - num: "V2"
+        text: 'Lavagna, M. & Paul-Adrien, fr. « Dieu existe-t-il ? LA PREUVE. »'
+        url: "https://www.youtube.com/watch?v=fYgRGBczRHk"
+        link_label: "YouTube"
+      - num: "V3"
+        text: 'Guénolé, T. vs Bonnassies, O. « Avons-nous des preuves de l'existence de Dieu ? »'
+        url: "https://www.youtube.com/watch?v=ZWzys1gojtA"
+        link_label: "YouTube"
+      - num: "V4"
+        text: 'Lennox, J. C. « God DOES Exist. » Oxford Union.'
+        url: "https://www.youtube.com/watch?v=otrqzITuSqE"
+        link_label: "YouTube"
+      - num: "V5"
+        text: 'Le Catho de Service. « Montrer que Dieu existe, 100 fois différemment. »'
+        url: "https://www.youtube.com/watch?v=ZiNRN20tEQI"
+        link_label: "YouTube"

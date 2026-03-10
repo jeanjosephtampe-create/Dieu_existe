@@ -1,0 +1,12 @@
+{% comment %}
+  _includes/section-header.html
+  Variables : tag, title, desc
+{% endcomment %}
+<header class="section-header">
+  <span class="section-tag">{{ include.tag }}</span>
+  <h2 class="section-title">{{ include.title }}</h2>
+  <div class="gold-line" aria-hidden="true"></div>
+  {% if include.desc %}
+  <p class="section-desc">{{ include.desc }}</p>
+  {% endif %}
+</header>

@@ -1,0 +1,55 @@
+# ============================================================
+#  _config.yml — Configuration Jekyll pour dieu-preuves.fr
+# ============================================================
+
+title: "Dieu Existe — Les Preuves"
+description: "Découvrez une analyse rigoureuse des preuves de l'existence de Dieu. De l'argument cosmologique (Kalam) au réglage fin de l'univers, explorez les arguments rationnels et scientifiques."
+url: "https://dieu-preuves.fr"
+baseurl: ""
+lang: "fr"
+author: "Dieu Preuves"
+
+# SEO
+logo: "/assets/img/og-image.jpg"
+twitter:
+  username: dieu_preuves
+  card: summary_large_image
+
+social:
+  name: "Dieu Existe — Les Preuves"
+  links:
+    - https://dieu-preuves.fr
+
+# Plugins (supportés nativement par GitHub Pages)
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Exclude from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Markdown
+markdown: kramdown
+highlighter: rouge
+
+# Permalink
+permalink: pretty
+
+# Collections (pour ajouter des articles de blog apologétique plus tard)
+collections:
+  articles:
+    output: true
+    permalink: /articles/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "articles"
+    values:
+      layout: "article"

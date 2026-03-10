@@ -1,0 +1,47 @@
+# ============================================================
+#  _data/videos.yml
+#  Pour ajouter une vidéo : copier un bloc et modifier les champs.
+# ============================================================
+
+featured:
+  - id: ZWzys1gojtA
+    title: "Avons-nous des preuves de l'existence de Dieu ? — Débat complet"
+    author: "Thomas Guénolé vs Olivier Bonnassies · Dieu, la Science, les Preuves"
+
+  - id: otrqzITuSqE
+    title: "God DOES Exist — Oxford Union"
+    author: "Prof. John Lennox · Mathématicien, Université d'Oxford"
+
+  - id: ZiQiRMZ2XQU
+    title: "Dieu, la Science, les Preuves"
+    author: "Michel Bolloré & Olivier Bonnassies · Émission Légende"
+
+  - id: fYgRGBczRHk
+    title: "Dieu existe-t-il ? — Les preuves cosmologiques, fine-tuning, morales"
+    author: "Matthieu Lavagna & Frère Paul-Adrien"
+
+  - id: 7IA4XriGeZY
+    title: "On prouve l'existence de Dieu"
+    author: "Abbé Raffray & Matthieu Lavagna · Soyez rationnel, devenez catholique"
+
+  - id: ZiNRN20tEQI
+    title: "Montrer que Dieu existe — 100 fois différemment"
+    author: "Le Catho de Service"
+
+  - id: UnaAFhybsDk
+    title: "Jésus a-t-il existé ? — ONFRAY débunké"
+    author: "Matthieu Lavagna & Frère Paul-Adrien"
+
+  - id: TSZXlVF-qVI
+    title: "Is There Evidence of God in Mathematics?"
+    author: "Dr. Willie Soon — Astrophysicien"
+
+titles:
+  ZiQiRMZ2XQU: "Dieu, la Science, les Preuves — Légende"
+  ZWzys1gojtA: "Guénolé vs Bonnassies — Débat complet"
+  ZiNRN20tEQI: "100 raisons de croire en Dieu"
+  fYgRGBczRHk: "Dieu existe-t-il ? — Lavagna & Frère Paul-Adrien"
+  7IA4XriGeZY: "On prouve l'existence de Dieu — Abbé Raffray"
+  otrqzITuSqE: "God DOES Exist — Prof. John Lennox, Oxford"
+  UnaAFhybsDk: "Jésus a-t-il existé ? ONFRAY débunké — Lavagna"
+  TSZXlVF-qVI: "Is There Evidence of God in Mathematics? — Dr. Soon"

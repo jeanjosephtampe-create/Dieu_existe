@@ -1,0 +1,52 @@
+# ============================================================
+#  _data/scientists.yml
+#  Pour ajouter un savant : copier un bloc.
+# ============================================================
+
+- name: Isaac Newton
+  field: Physique · Mathématiques
+  faith: Chrétien fervent
+
+- name: Georges Lemaître
+  field: Père du Big Bang
+  faith: Prêtre catholique
+
+- name: Gregor Mendel
+  field: Fondateur de la génétique
+  faith: Moine augustinien
+
+- name: Louis Pasteur
+  field: Microbiologie · Vaccins
+  faith: Catholique pratiquant
+
+- name: Max Planck
+  field: Physique quantique (Nobel 1918)
+  faith: Chrétien fervent
+
+- name: Arno Penzias
+  field: Prix Nobel 1978 · Rayonnement fossile Big Bang
+  faith: Croyant
+
+- name: Francis Collins
+  field: Directeur du Genome Project
+  faith: Chrétien évangélique
+
+- name: John Lennox
+  field: Mathématicien, Oxford
+  faith: Chrétien apologète
+
+- name: Allan Sandage
+  field: Cosmologiste, Prix Crafoord
+  faith: Chrétien (converti à 50 ans)
+
+- name: Nicolas Copernic
+  field: Héliocentrisme
+  faith: Chanoine catholique
+
+- name: William Thomson (Kelvin)
+  field: Thermodynamique
+  faith: Chrétien fervent
+
+- name: Werner Heisenberg
+  field: Physique quantique
+  faith: Chrétien luthérien

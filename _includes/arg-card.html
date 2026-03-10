@@ -1,0 +1,38 @@
+{% comment %}
+  _includes/arg-card.html
+  Variables :
+    arg.icon, arg.title, arg.body, arg.highlight
+    arg.source_text, arg.source_url, arg.source_link_label
+    arg.video_id, arg.video_start, arg.video_label
+{% endcomment %}
+<article class="arg-card{% if arg.highlight %} arg-card--highlight{% endif %}"
+         itemscope itemtype="https://schema.org/Article">
+  <div class="arg-icon" aria-hidden="true">{{ arg.icon }}</div>
+  <h4 class="arg-title" itemprop="name">{{ arg.title }}</h4>
+  <p class="arg-body" itemprop="description">{{ arg.body }}</p>
+
+  {% if arg.source_text %}
+  <footer class="arg-source" itemprop="citation">
+    {{ arg.source_text }}
+    {% if arg.source_url %}
+    · <a href="{{ arg.source_url }}" target="_blank" rel="noopener">{{ arg.source_link_label }}</a>
+    {% endif %}
+  </footer>
+  {% endif %}
+
+  {% if arg.video_id %}
+  <a class="arg-vid-btn"
+     onclick="openModal('{{ arg.video_id }}', {{ arg.video_start | default: 0 }})"
+     href="javascript:void(0);"
+     aria-label="Voir la vidéo : {{ arg.video_label }}">
+    ▶ {{ arg.video_label }}
+  </a>
+  {% endif %}
+
+  <div class="form-container">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdIixaQWlc4wS3Et5TtCgWuUzKtZhM4a9ybqW_qzOwKeD-H_g/viewform?usp=publish-editor"
+       target="_blank" rel="noopener" class="btn-form-yellow">
+      ✎ Proposer un argument Pour / Contre
+    </a>
+  </div>
+</article>

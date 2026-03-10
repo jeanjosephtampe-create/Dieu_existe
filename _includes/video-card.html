@@ -1,0 +1,30 @@
+{% comment %}
+  _includes/video-card.html
+  Variables : video.id, video.title, video.author
+{% endcomment %}
+<div class="video-card">
+  {%- assign vid_id = video.id -%}
+  <div class="yt-thumb"
+       onclick="playYT(this,'{{ vid_id }}')"
+       role="button"
+       tabindex="0"
+       aria-label="Lire la vidéo : {{ video.title }}"
+       onkeypress="if(event.key==='Enter')playYT(this,'{{ vid_id }}')">
+    <!-- Thumbnail lazy-loaded pour Core Web Vitals -->
+    <img
+      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 360'%3E%3Crect fill='%23111827' width='480' height='360'/%3E%3C/svg%3E"
+      data-src="https://img.youtube.com/vi/{{ vid_id }}/hqdefault.jpg"
+      alt="{{ video.title }}"
+      width="480"
+      height="360"
+      loading="lazy"
+      class="yt-lazy">
+    <div class="yt-play-btn" aria-hidden="true">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+  </div>
+  <div class="video-meta">
+    <p class="video-title">{{ video.title }}</p>
+    <p class="video-author">{{ video.author }}</p>
+  </div>
+</div>
