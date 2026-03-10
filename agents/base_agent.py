@@ -74,6 +74,7 @@ class BaseAgent(ABC):
         self.model = model
         self.max_llm_calls = max_llm_calls   # -1 = illimité
         self.findings: list[dict] = []
+        self.generated_files: list[Path] = []  # fichiers écrits par cet agent
         self._call_count = 0
         self._skipped_calls = 0              # appels sautés à cause de la limite
         self._total_llm_time = 0.0           # secondes passées à attendre le LLM
@@ -258,8 +259,88 @@ class BaseAgent(ABC):
         except Exception:
             return ""
 
+    def _write_file(self, path: Path, content: str) -> Path:
+        """Écrit un fichier et l'enregistre dans generated_files."""
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(content, encoding="utf-8")
+        self.generated_files.append(path)
+        print(f"    ✎ Écrit : {path.relative_to(path.parents[2]) if path.parents[2].exists() else path.name}", flush=True)
+        return path
+
     @staticmethod
     def _is_excluded(path: Path) -> bool:
         """Vérifie si le chemin est dans un dossier à ignorer."""
         excluded = {"node_modules", ".git", "_site", "vendor", "reports", "tests"}
         return any(part in excluded for part in path.parts)
+
+    # ------------------------------------------------------------------ #
+    #  Lecture du Master Prompt                                            #
+    # ------------------------------------------------------------------ #
+
+    @staticmethod
+    def read_pending_tasks(project_path: Path) -> list[dict]:
+        """
+        Lit MASTER_PROMPT.md et retourne les tâches non cochées
+        qui ne sont pas déjà dans task_log.json.
+
+        Retourne une liste de dicts :
+          {"id": "TASK-001", "description": "...", "line_idx": 12}
+        """
+        master = project_path / "MASTER_PROMPT.md"
+        task_log = project_path / "agents" / "memory" / "task_log.json"
+
+        if not master.exists():
+            return []
+
+        # Tâches déjà complétées
+        done: set[str] = set()
+        if task_log.exists():
+            try:
+                log = json.loads(task_log.read_text(encoding="utf-8"))
+                done = {k for k, v in log.items() if v.get("status") == "done"}
+            except Exception:
+                pass
+
+        pending = []
+        lines = master.read_text(encoding="utf-8").splitlines()
+        task_re = re.compile(r"^- \[ \]\s+(TASK-\w+)\s*:\s*(.+)$")
+        for idx, line in enumerate(lines):
+            m = task_re.match(line.strip())
+            if m:
+                task_id, desc = m.group(1), m.group(2).strip()
+                if task_id not in done:
+                    pending.append({"id": task_id, "description": desc, "line_idx": idx})
+        return pending
+
+    @staticmethod
+    def mark_task_done(project_path: Path, task_id: str, agent_name: str) -> None:
+        """Coche la tâche dans MASTER_PROMPT.md et la logue dans task_log.json."""
+        import datetime
+
+        # 1. Cocher dans MASTER_PROMPT.md
+        master = project_path / "MASTER_PROMPT.md"
+        if master.exists():
+            text = master.read_text(encoding="utf-8")
+            text = re.sub(
+                rf"^(- )\[ \](\s+{re.escape(task_id)}\s*:)",
+                r"\1[x]\2",
+                text,
+                flags=re.MULTILINE,
+            )
+            master.write_text(text, encoding="utf-8")
+
+        # 2. Logger dans task_log.json
+        task_log = project_path / "agents" / "memory" / "task_log.json"
+        task_log.parent.mkdir(parents=True, exist_ok=True)
+        log: dict = {}
+        if task_log.exists():
+            try:
+                log = json.loads(task_log.read_text(encoding="utf-8"))
+            except Exception:
+                pass
+        log[task_id] = {
+            "status": "done",
+            "executed_at": datetime.datetime.now().isoformat(timespec="seconds"),
+            "agent": agent_name,
+        }
+        task_log.write_text(json.dumps(log, ensure_ascii=False, indent=2), encoding="utf-8")

@@ -58,10 +58,10 @@ Exemples :
     parser.add_argument(
         "--agents",
         nargs="+",
-        choices=["code", "uiux", "seo", "req"],
-        default=["code", "uiux", "seo", "req"],
+        choices=["transcript", "content", "code", "uiux", "seo", "req"],
+        default=["transcript", "content", "code", "uiux", "seo", "req"],
         metavar="AGENT",
-        help="Agents à exécuter : code, uiux, seo, req (défaut : tous)",
+        help="Agents à exécuter : transcript, content, code, uiux, seo, req (défaut : tous)",
     )
     parser.add_argument(
         "--speed",
@@ -87,6 +87,19 @@ Exemples :
         "--list",
         action="store_true",
         help="Lister les agents disponibles et quitter",
+    )
+    parser.add_argument(
+        "--no-push",
+        action="store_true",
+        dest="no_push",
+        help="Désactiver le git push automatique après le run",
+    )
+    parser.add_argument(
+        "--transcripts",
+        type=Path,
+        default=None,
+        metavar="CHEMIN",
+        help="Dossier contenant les fichiers NoteGPT_TRANSCRIPT_*.txt (défaut : dossier parent du projet)",
     )
 
     return parser.parse_args()
@@ -124,10 +137,12 @@ def main() -> int:
     # --list
     if args.list:
         print("\nAgents disponibles :")
-        print("  code  — KeyCode : révision qualité HTML/CSS/JS/YAML")
-        print("  uiux  — UI/UX Designer : accessibilité, design, responsive")
-        print("  seo   — SEO Expert : référencement, meta tags, Schema.org")
-        print("  req   — RequirementsChecker : conformité aux exigences (REQUIREMENTS.md)")
+        print("  transcript — TranscriptMiner : citations + timestamps des vidéos")
+        print("  content    — ContentBuilder  : génération includes Jekyll enrichis")
+        print("  code       — KeyCode         : révision qualité HTML/CSS/JS/YAML")
+        print("  uiux       — UI/UX Designer  : accessibilité, design, responsive")
+        print("  seo        — SEO Expert      : référencement, meta tags, Schema.org")
+        print("  req        — RequirementsChecker : conformité aux exigences")
         print("\nModes de vitesse :")
         for name, preset in SPEED_PRESETS.items():
             lo, hi = preset["estimated_seconds"]
@@ -135,6 +150,9 @@ def main() -> int:
             calls_str = "illimité" if calls < 0 else str(calls)
             print(f"  {name:<8} {preset['label']}")
             print(f"           Max appels : {calls_str}/agent  |  Durée estimée : {lo//60}m–{hi//60}m")
+        print("\nOptions spéciales :")
+        print("  --no-push          Désactive le git push automatique")
+        print("  --transcripts DIR  Dossier des fichiers NoteGPT_TRANSCRIPT_*.txt")
         return 0
 
     # Résolution du max_calls final
@@ -150,12 +168,16 @@ def main() -> int:
     else:
         effective_estimated = estimated
 
+    auto_push = not args.no_push
     print(f"\n  Projet    : {args.project}")
     print(f"  LLM       : {args.model}")
     print(f"  Agents    : {', '.join(args.agents)}")
     print(f"  Mode      : {speed.upper()} — {preset['label']}")
     print(f"  Max appels: {effective_max if effective_max >= 0 else 'illimité'} par agent")
     print(f"  Durée est.: {effective_estimated}")
+    print(f"  Git push  : {'oui (branche improvements/)' if auto_push else 'non (--no-push)'}")
+    if args.transcripts:
+        print(f"  Transcripts: {args.transcripts}")
 
     # Vérification Ollama (inutile en mode fast)
     if effective_max != 0:
@@ -176,7 +198,18 @@ def main() -> int:
             model=args.model,
             speed=speed,
             max_llm_calls=max_calls_override,
+            auto_push=auto_push,
         )
+        # Passe le chemin des transcripts au TranscriptMinerAgent si nécessaire
+        if args.transcripts and "transcript" in args.agents:
+            from .transcript_agent import TranscriptMinerAgent
+            from .orchestrator import AVAILABLE_AGENTS
+            orig_cls = AVAILABLE_AGENTS.get("transcript", TranscriptMinerAgent)
+            transcripts_path = args.transcripts
+            class _TranscriptWithPath(orig_cls):  # type: ignore[valid-type]
+                def __init__(self, **kw):
+                    super().__init__(**kw, transcripts_path=transcripts_path)
+            AVAILABLE_AGENTS["transcript"] = _TranscriptWithPath
         report_path = orch.run(agents=args.agents)
         print(f"\n  Rapport disponible : {report_path}")
         return 0

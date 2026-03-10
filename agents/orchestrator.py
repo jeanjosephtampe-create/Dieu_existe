@@ -1,12 +1,12 @@
 """
 orchestrator.py — Orchestrateur de l'équipe d'agents
-Coordonne CodeAgent, UIUXAgent, SEOAgent et RequirementsAgent.
-Génère un rapport Markdown consolidé et priorisé.
+Coordonne tous les agents : analyse + construction + git push automatique.
 """
 
 from __future__ import annotations
 
 import json
+import subprocess
 from datetime import datetime
 from pathlib import Path
 from typing import Literal
@@ -15,15 +15,19 @@ from .code_agent import CodeAgent
 from .uiux_agent import UIUXAgent
 from .seo_agent import SEOAgent
 from .requirements_agent import RequirementsAgent
+from .transcript_agent import TranscriptMinerAgent
+from .content_agent import ContentBuilderAgent
 from .base_agent import SPEED_PRESETS, estimate_duration
 
 # ------------------------------------------------------------------ #
 #  Types                                                              #
 # ------------------------------------------------------------------ #
 
-AgentName = Literal["code", "uiux", "seo", "req"]
+AgentName = Literal["code", "uiux", "seo", "req", "transcript", "content"]
 
-AVAILABLE_AGENTS: dict[AgentName, type] = {
+AVAILABLE_AGENTS: dict[str, type] = {
+    "transcript": TranscriptMinerAgent,
+    "content": ContentBuilderAgent,
     "code": CodeAgent,
     "uiux": UIUXAgent,
     "seo": SEOAgent,
@@ -31,6 +35,8 @@ AVAILABLE_AGENTS: dict[AgentName, type] = {
 }
 
 AGENT_LABELS = {
+    "transcript": "TranscriptMiner — Citations & timestamps vidéo",
+    "content": "ContentBuilder — Génération includes Jekyll",
     "code": "KeyCode — Qualité du code",
     "uiux": "UI/UX Designer — Expérience utilisateur",
     "seo": "SEO Expert — Référencement naturel",
@@ -65,6 +71,7 @@ class Orchestrator:
         model: str = "llama3.1:8b",
         speed: str = "normal",
         max_llm_calls: int | None = None,
+        auto_push: bool = True,
     ):
         self.project_path = Path(project_path).resolve()
         self.model = model
@@ -74,10 +81,12 @@ class Orchestrator:
             self.max_llm_calls = max_llm_calls
         else:
             self.max_llm_calls = SPEED_PRESETS[self.speed]["max_llm_calls"]
+        self.auto_push = auto_push
         self.results: dict[str, dict] = {}
         self.started_at: datetime | None = None
         self.ended_at: datetime | None = None
         self._agent_summaries: list[str] = []
+        self._generated_files: list[str] = []
 
         if not self.project_path.exists():
             raise FileNotFoundError(f"Projet introuvable : {self.project_path}")
@@ -104,12 +113,19 @@ class Orchestrator:
             agent = cls(model=self.model, max_llm_calls=self.max_llm_calls)
             self.results[name] = agent.run(self.project_path)
             self._agent_summaries.append(agent.summary())
+            # Collecte les fichiers générés
+            if hasattr(agent, "generated_files"):
+                self._generated_files.extend(str(f) for f in agent.generated_files)
 
         self.ended_at = datetime.now()
 
         report_content = self._build_report()
         report_path = self._save_report(report_content)
         self._print_summary(report_path)
+
+        # Git push automatique
+        if self.auto_push:
+            self._git_push()
 
         return str(report_path)
 
@@ -407,6 +423,76 @@ class Orchestrator:
         report_path = reports_dir / f"rapport_{timestamp}.md"
         report_path.write_text(content, encoding="utf-8")
         return report_path
+
+    # ------------------------------------------------------------------ #
+    #  Git push automatique                                               #
+    # ------------------------------------------------------------------ #
+
+    def _git_push(self) -> None:
+        """Committe les modifications et pousse sur une branche improvements/."""
+        ts = self.started_at.strftime("%Y%m%d-%H%M%S")
+        branch = f"improvements/{ts}"
+
+        # Vérifie qu'on est bien dans un repo git
+        check = subprocess.run(
+            ["git", "rev-parse", "--is-inside-work-tree"],
+            cwd=self.project_path,
+            capture_output=True,
+            text=True,
+        )
+        if check.returncode != 0:
+            print("\n  [GIT] Pas de dépôt git — push ignoré.")
+            return
+
+        # Vérifie s'il y a des changements à committer
+        status = subprocess.run(
+            ["git", "status", "--porcelain"],
+            cwd=self.project_path,
+            capture_output=True,
+            text=True,
+        )
+        if not status.stdout.strip():
+            print("\n  [GIT] Aucun changement à committer.")
+            return
+
+        print(f"\n  [GIT] Création branche : {branch}")
+        try:
+            steps = [
+                ["git", "checkout", "-b", branch],
+                ["git", "add", "-A", "--",
+                 ":!agents/reports/", ":!agents/__pycache__/", ":!__pycache__/"],
+                ["git", "commit", "-m",
+                 f"agents: amélioration automatique {self.started_at.strftime('%Y-%m-%d %H:%M')} [{', '.join(self.results.keys())}]"],
+                ["git", "push", "-u", "origin", branch],
+            ]
+            for cmd in steps:
+                result = subprocess.run(
+                    cmd, cwd=self.project_path,
+                    capture_output=True, text=True,
+                )
+                if result.returncode != 0:
+                    # git add avec pathspec négatif échoue parfois — fallback
+                    if "add" in cmd and result.returncode != 0:
+                        subprocess.run(
+                            ["git", "add", "_data/", "_includes/", "MASTER_PROMPT.md",
+                             "REQUIREMENTS.md", "agents/memory/"],
+                            cwd=self.project_path, check=False,
+                        )
+                        subprocess.run(
+                            ["git", "commit", "-m",
+                             f"agents: amélioration automatique {self.started_at.strftime('%Y-%m-%d %H:%M')}"],
+                            cwd=self.project_path, check=False,
+                        )
+                        subprocess.run(
+                            ["git", "push", "-u", "origin", branch],
+                            cwd=self.project_path, check=False,
+                        )
+                        break
+                    print(f"  [GIT] Erreur : {result.stderr.strip()}")
+                    return
+            print(f"  [GIT] ✓ Poussé sur origin/{branch}")
+        except Exception as e:
+            print(f"  [GIT] Erreur inattendue : {e}")
 
     # ------------------------------------------------------------------ #
     #  Affichage                                                          #
